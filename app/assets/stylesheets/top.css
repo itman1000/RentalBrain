@@ -42,6 +42,13 @@ header .container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 1;
+  transition: opacity 5s, transform 2s;
+}
+
+#brain.hidden {
+  opacity: 0;
+  transform: translateX(20vw);
 }
 
 header .container h1 {
@@ -53,19 +60,59 @@ header .container h1 {
   color: #3333ff;
   font-size: 8vw;
   line-height: 8vw;
-  /* font-size: 12rem;
-  line-height: 12rem; */
+  text-shadow: 1vw 1vw 1vw rgba(50, 50, 50, .5);
+  transition: opacity 1s .5s, transform 1s .5s, text-shadow 1s 1.5s;
+}
+
+header .container h1.hidden {
+  opacity: 0;
+  transform: translateY(16vw);
+  text-shadow: 1vw 1vw 1vw rgba(255, 255, 255, 1);
+}
+
+header .container h3 {
+  font-size: 2vw;
+  color: #3333ff;
+  position: absolute;
+  top: 26vw;
+  left: 8vw;
+  text-shadow: .5vw .5vw .5vw rgba(50, 50, 50, .5);
+  transition: opacity 1s 1.5s, transform 1s 1.5s, text-shadow 1s 2s;
+}
+
+header .container h3.hidden {
+  opacity: 0;
+  transform: translateX(-3vw);
+  text-shadow: .5vw .5vw .5vw rgba(255, 255, 255, 1);
+}
+
+#header-menu {
+  opacity: 1;
+  transition: opacity 1s 2.5s;
+}
+
+#header-menu.hidden {
+  opacity: 0;
 }
 
 header .container span {
   margin-left: 13.2vw;
 }
 
+header .container .box1 {
+  background: #fff;
+  position: absolute;
+  top: 25vw;
+  left: 2.7vw;
+  width: 36vw;
+  height: 16vw;
+}
+
 header .container ul {
   list-style-type: none;
   position: absolute;
-  top: 27.8vw;
-  left: 13.9vw;
+  top: 32vw;
+  left: 17vw;
   font-size: 1.4vw;
 }
 
@@ -74,21 +121,52 @@ header .container ul li {
   margin-bottom: .7vw;
 }
 
-
 /*** aboutのCSS **************************************************/
 .about .container {
+  /* position: relative; */
   width: 90%;
   height: 100%;
-  padding-bottom: 6.9vw;
+  padding-bottom: 5vw;
+}
+
+.about .container .title h3 {
+  width: auto;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 3vw;
+  color: #3333ff;
+}
+
+.about .container .title {
+  width: 100%;
+  margin-bottom: 3vw;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s, transform 1s;
+}
+
+.about .container .title.appear {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .about .container ul {
+  height: 100%;
   list-style: none;
 }
 
 .about .container ul li {
   display: flex;
   margin-bottom: 6.94vw;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s, transform 1s;
+}
+
+.about .container ul li.appear {
+  height: 100%;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .about .container ul li img {
@@ -97,18 +175,44 @@ header .container ul li {
   object-fit: cover; 
   padding: 0;
   margin: 0 2.1vw;
+  box-shadow: 1vw 1vw .5vw rgb(150, 150, 150, .7);
 }
 
-.about .container li p {
-  font-size: 1.4vw;
+.about .container ul li p {
+  font-size: 1vw;
+  letter-spacing: 1px;
   padding: .7vw;
   margin: 0;
+  width: 50%;
 }
 
+.about .container ul li .line1 {
+  width: 1vw;
+  height: 8vw;
+  margin-top: 1vw;
+  background: #3333ff;
+}
+
+.about .container ul li .line2 {
+  width: 1vw;
+  height: 10vw;
+  margin-top: 1vw;
+  background: #3333ff;
+}
 
 /*** カルーセルのCSS **************************************************/
 .carousel {
   width: 100%;
+  padding: 5vw 0;
+  background: #5555FF;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s, transform 1s;
+}
+
+.carousel.appear {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .carousel .container {
@@ -117,7 +221,6 @@ header .container ul li {
   display: block;
   overflow: hidden;
 }
-
 .carousel .container ul {
   list-style: none;
   display: flex;

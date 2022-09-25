@@ -2,7 +2,7 @@
 
 {
   const next = document.getElementById('next');
-  const ul = document.getElementById('carouselId');
+  const ul = document.querySelector('.carousel .container ul');
   const slides = ul.children;
   const dots = [];
   let currentIndex = 1;
@@ -27,6 +27,7 @@
       const button = document.createElement('button');
       button.addEventListener('click', () => {
         currentIndex = i;
+        ul.classList.add('ul-transition');
         updateDots();
         carouselScroll();
       });
@@ -72,7 +73,7 @@
     if (currentIndex < 0 ) {
       currentIndex = 0;
     } else {
-      updateDots(1);
+      updateDots();
     }
   });
 
