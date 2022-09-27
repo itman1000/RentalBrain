@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Post: MyString
+  content: MyText
+  attribute: MyString
+  pearent_id: 1
+
+two:
+  Post: MyString
+  content: MyText
+  attribute: MyString
+  pearent_id: 1

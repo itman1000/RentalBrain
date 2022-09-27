@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RentalBrain</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="header0">
+      <div class="header-logo">
+        <%= link_to 'RentalBrain', '/', class: "header-link1", data: { turbo: false } %>
+      </div>
+      <ul class="header-menus">
+        <li>
+          <%= link_to '投稿一覧', '/posts/index', class: "header-link2" %>
+        </li>
+        <li>
+          <%= link_to '新規投稿', '/posts/new', class: "header-link2" %>
+        </li>
+      </ul>
+    </div>
+
+    <%= yield %>
+  </body>
+</html>

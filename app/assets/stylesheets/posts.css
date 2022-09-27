@@ -1,0 +1,98 @@
+/*** 投稿一覧 ******************************************************/
+.main {
+  width: 90%;
+  margin: 2vw auto;
+}
+
+.header0 {
+  position: relative;
+  display: flex;
+  background: #55f;
+}
+
+.header0 ul {
+  display: flex;
+  position: absolute;
+  flex: float;
+  right: 2vw;
+  padding: 1vw;
+}
+
+.header0 ul li {
+  margin-right: 1vw;
+}
+
+.header-logo {
+  padding: 1vw;
+  /* background: linear-gradient(to right, #55f, #aaf); */
+}
+
+.header-link1 {
+  font-size: 2vw;
+  color: #fff;
+}
+
+.header-link2 {
+  font-size: 1vw;
+  color: #fff;
+}
+
+.posts-title h3 {
+  padding: 1vw 0;
+  font-size: 1.5vw;
+  text-align: center;
+  letter-spacing:.1vw;
+  background: #ddd;
+}
+
+.posts-index-item {
+  color: #333;
+  font-size: 1vw;
+  letter-spacing: .1vw;
+  padding: 1vw;
+  border: .1vw solid #ccc;
+  box-shadow: .3vw .3vw .3vw #eee;
+  line-height: 2vw;
+  border-radius: .3vw;
+}
+
+/*** 投稿詳細 ******************************************************/
+.posts-show {
+  font-size: 1vw;
+  width: 80%;
+}
+
+.posts-show-item {
+  color: #333;
+  font-size: 1vw;
+  letter-spacing: .1vw;
+  padding: 1vw;
+  border: .1vw solid #ccc;
+  box-shadow: .3vw .3vw .3vw #eee;
+  line-height: 2vw;
+  border-radius: .3vw;
+}
+
+.turn-back {
+  text-align: center;
+  font-size: 1.2vw;
+  margin-top: 2vw;
+}
+
+/*** 新規投稿 ******************************************************/
+.posts-new {
+  border: .1vw solid #ccc;
+  box-shadow: .3vw .3vw .3vw #eee;
+  width: 70%;
+  height: 40vw;
+  margin-top: 5vw;
+}
+
+.posts-new textarea {
+  width: 90%;
+  height: 70%;
+  border: .1vw solid #ccc;
+  display: block;
+  margin: 3vw auto;
+  background: #eee;
+}
