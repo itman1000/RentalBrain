@@ -19,7 +19,7 @@
 }
 
 .header0 ul li {
-  margin-right: 1vw;
+  margin-right: 2vw;
 }
 
 .header-logo {
@@ -43,14 +43,15 @@
   text-align: center;
   letter-spacing:.1vw;
   background: #ddd;
+  margin-bottom: 5vw;
 }
 
 .posts-index-item {
   color: #333;
-  font-size: 1vw;
+  font-size: .9vw;
   letter-spacing: .1vw;
   padding: 1vw;
-  border: .1vw solid #ccc;
+  border: .1vw solid #ddd;
   box-shadow: .3vw .3vw .3vw #eee;
   line-height: 2vw;
   border-radius: .3vw;
@@ -64,10 +65,10 @@
 
 .posts-show-item {
   color: #333;
-  font-size: 1vw;
+  font-size: .8vw;
   letter-spacing: .1vw;
   padding: 1vw;
-  border: .1vw solid #ccc;
+  border: .1vw solid #ddd;
   box-shadow: .3vw .3vw .3vw #eee;
   line-height: 2vw;
   border-radius: .3vw;
@@ -81,18 +82,40 @@
 
 /*** 新規投稿 ******************************************************/
 .posts-new {
-  border: .1vw solid #ccc;
+  border: .1vw solid #ddd;
+  border-radius: .3vw;
   box-shadow: .3vw .3vw .3vw #eee;
   width: 70%;
-  height: 40vw;
-  margin-top: 5vw;
+  height: 28vw;
+  background: #eee;
+  text-align: center;
 }
 
-.posts-new textarea {
+.text-area {
   width: 90%;
-  height: 70%;
+  height: 60%;
   border: .1vw solid #ccc;
   display: block;
   margin: 3vw auto;
-  background: #eee;
+  background: #fff;
+  resize: none;
+  outline: none;
+  line-height: 2rem;
+  padding: .7rem .7rem;
+  font-size: 1.3rem;
+  letter-spacing: .07rem;
+  text-align: left;
+}
+
+.posts-new .input1 {
+  color: #fff;
+  font-size: 1.2vw;
+  padding: .5vw 3vw;
+  background: linear-gradient(#aaf, #77f);
+  box-shadow: .1vw .1vw .1vw #aaa;
+}
+
+.posts-new .input1:active {
+  transform: translate(.1vw, .1vw);
+  box-shadow: none;
 }

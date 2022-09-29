@@ -2,9 +2,16 @@
   <h3>新規投稿</h3>
 </div>
 
-<div class="main posts-new">
-  <div class="container">
-    <textarea></textarea>
-    <input type="submit" value="投稿">
-  </div>
+
+<%= form_with model: @post, local: true do |form| %>
+    <div class="main posts-new">
+      <div class="container">  
+        <%= form.text_area :content, class: "text-area" %>
+        <%= form.submit "投稿", class: "input1" %>
+      </div>
+    </div>
+<% end %>
+
+<div class="turn-back">
+  <%= link_to '戻る', '/posts/index' %>
 </div>
