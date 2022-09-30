@@ -7,11 +7,16 @@
     <div class="posts-show-item">
       <%= @post.content %>
       <div class="posts-time">
-        <%= @post.created_at %>
+        <%= @post.updated_at %>
+      </div>
+      <div class="posts-menus">
+        <%= link_to '編集', "/posts/#{@post.id}/edit", class: 'pm-edit' %>
+        <%= link_to '削除', "/posts/#{@post.id}", method: :delete, class: 'pm-edit' %>
       </div>
     </div>
+
     <div class="turn-back">
-      <%= link_to '戻る', '/posts/index' %>
+      <%= link_to '戻る', posts_path %>
     </div>
   </div>
 </div>

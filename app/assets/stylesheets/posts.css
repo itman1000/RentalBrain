@@ -80,6 +80,17 @@
   margin-top: 2vw;
 }
 
+.posts-time {
+  line-height: 1vw;
+  margin-top: 2vw;
+}
+
+.posts-menus {
+  font-display: inline-block;
+  text-align: right;
+  margin-right: 2vw;
+}
+
 /*** 新規投稿 ******************************************************/
 .posts-new {
   border: .1vw solid #ddd;
