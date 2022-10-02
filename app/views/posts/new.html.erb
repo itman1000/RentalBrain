@@ -1,10 +1,17 @@
-<div class="posts-title">
+<div class="page-title">
   <h3>新規投稿</h3>
 </div>
 
 <%= form_with model: @post do |form| %>
   <div class="main posts-new">
-    <div class="container">  
+    <div class="container">
+      <% @post.errors.full_messages.each do |message| %>
+        <div class="form-error">
+          <%= message %>
+        </div>
+      <% end %>
+
+      <%= form.text_field :title, class: "text-field" %>
       <%= form.text_area :content, class: "text-area" %>
       <%= form.submit "投稿", class: "input1" %>
     </div>
@@ -12,5 +19,5 @@
 <% end %>
 
 <div class="turn-back">
-  <%= link_to '戻る', posts_path %>
+  <%= link_to '戻る', posts_path, local: true %>
 </div>

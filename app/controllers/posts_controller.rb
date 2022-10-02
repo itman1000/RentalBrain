@@ -15,8 +15,11 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.save
-    redirect_to post
+    if @post.save
+      redirect_to Post
+    else
+      render action: :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -25,19 +28,24 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to @post
+    if @post.update(post_params)
+      redirect_to @post
+    else
+      render action: :edit, status: :unprocessable_entity
+    end
   end  
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path
+    respond_to do |format|
+      format.html { redirect_to Post, status: :see_other }
+    end
   end
 
   private
   def post_params
-    params.require(:post).permit(:content)
+    params.require(:post).permit(:title, :content)
   end
 
 end
