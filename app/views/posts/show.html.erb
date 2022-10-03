@@ -9,7 +9,7 @@
         <%= @post.title %>
       </div>
       <div class="posts-content">
-        <%= @post.content %>
+        <%= safe_join(@post.content.split("\n"),tag(:br)) %>
       </div>
       <div class="posts-time">
         <%= @post.updated_at %>
@@ -21,7 +21,7 @@
     </div>
 
     <div class="turn-back">
-      <%= link_to '戻る', posts_path, local: true %>
+      <%= link_to '戻る', posts_path, remote: false, class: 'return' %>
     </div>
   </div>
 </div>

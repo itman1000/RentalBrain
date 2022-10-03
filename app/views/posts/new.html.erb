@@ -2,7 +2,7 @@
   <h3>新規投稿</h3>
 </div>
 
-<%= form_with model: @post do |form| %>
+<%= form_with model: @post, url: confirm_posts_path(@post), data: { turbo: false } do |form| %>
   <div class="main posts-new">
     <div class="container">
       <% @post.errors.full_messages.each do |message| %>
@@ -19,5 +19,5 @@
 <% end %>
 
 <div class="turn-back">
-  <%= link_to '戻る', posts_path, local: true %>
+  <%= link_to '戻る', posts_path, remote: false, class: 'return' %>
 </div>

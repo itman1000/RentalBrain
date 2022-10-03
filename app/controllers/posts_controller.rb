@@ -13,12 +13,17 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def confirm
+    @post = Post.new(post_params)
+    render :new if @post.invalid?
+  end
+
   def create
     @post = Post.new(post_params)
-    if @post.save
-      redirect_to Post
+    if params[:back] || !@post.save
+      render :new
     else
-      render action: :new, status: :unprocessable_entity
+      redirect_to action: :index
     end
   end
 
@@ -26,14 +31,20 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def edit_confirm
+    @post = Post.find(params[:id])
+    @post.attributes = post_params
+    render :edit if @post.invalid?
+  end
+
   def update
     @post = Post.find(params[:id])
-    if @post.update(post_params)
-      redirect_to @post
+    if params[:back] || !@post.update(post_params)
+      render :edit
     else
-      render action: :edit, status: :unprocessable_entity
+      redirect_to post_path(@post)
     end
-  end  
+  end
 
   def destroy
     @post = Post.find(params[:id])

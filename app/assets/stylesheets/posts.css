@@ -37,6 +37,11 @@
   color: #fff;
 }
 
+.header-link1:hover,
+.header-link2:hover {
+  color: #aaf
+}
+
 .page-title h3 {
   padding: 1vw 0;
   font-size: 1.5vw;
@@ -49,13 +54,26 @@
 .posts-index-item {
   color: #333;
   font-size: .9vw;
-  letter-spacing: .1vw;
-  padding: 1vw;
+  letter-spacing: .05vw;
+  /* padding: 1vw; */
   border: .1vw solid #ddd;
   box-shadow: .3vw .3vw .3vw #eee;
-  line-height: 2vw;
+  line-height: 1.5vw;
   border-radius: .3vw;
 }
+
+.index-item {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+  padding: 1vw;
+}
+
+.index-item:hover {
+  background: #eef;
+}
+
 
 /*** 投稿詳細 ******************************************************/
 .posts-show {
@@ -65,12 +83,13 @@
 
 .posts-show-item {
   color: #333;
-  font-size: .8vw;
-  letter-spacing: .1vw;
-  padding: 1vw;
   border: .1vw solid #ddd;
   box-shadow: .3vw .3vw .3vw #eee;
-  line-height: 2vw;
+  line-height: 1.5vw;
+  padding: 2vw;
+  font-size: .9vw;
+  letter-spacing: .05vw;
+
   border-radius: .3vw;
 }
 
@@ -80,11 +99,19 @@
   margin-top: 2vw;
 }
 
+.return:hover {
+  color: #55f;
+  border-bottom: .1vw solid #55f;
+}
+
 .posts-title {
   font-size: 1.2vw;
   font-weight: bold;
-  margin-bottom: 1vw;
+  margin-bottom: 2vw;
+  padding-bottom: .3vw;
+  border-bottom: .3vw solid #ccc;
 }
+
 .posts-time {
   line-height: 1vw;
   margin-top: 2vw;
@@ -98,6 +125,11 @@
 
 .pm-edit {
   margin-right: .5vw;
+}
+
+.pm-edit:hover {
+  color: #55f;
+  border-bottom: .1vw solid #55f;
 }
 
 /*** 新規投稿 ******************************************************/
@@ -133,9 +165,9 @@
   display: block;
   flex: left;
   outline: none;
-  padding: .7rem .7rem;
-  /* font-size: 1.3rem; */
-  letter-spacing: .07rem;
+  padding: .5vw;
+  font-size: .9vw;
+  letter-spacing: .05vw;
   text-align: left;
 }
 
@@ -150,14 +182,14 @@
   background: #fff;
   resize: none;
   outline: none;
-  line-height: 2rem;
-  padding: .7rem .7rem;
-  /* font-size: 1.3rem; */
-  letter-spacing: .07rem;
+  line-height: 1.5vw;
+  padding: .5vw;
+  font-size: .9vw;
+  letter-spacing: .05vw;
   text-align: left;
 }
 
-.posts-new .input1 {
+.input1 {
   color: #fff;
   font-size: 1.2vw;
   padding: .5vw 3vw;
@@ -165,7 +197,41 @@
   box-shadow: .1vw .1vw .1vw #aaa;
 }
 
-.posts-new .input1:active {
+.input1:hover {
+  background: linear-gradient(#ccf, #99f);
+}
+
+  .input1:active {
   transform: translate(.1vw, .1vw);
   box-shadow: none;
+}
+
+/*** 投稿確認 ******************************************************/
+.confirm-item .container {
+  width: 70%;
+  height: 100%;
+  padding: 2vw;
+  margin-bottom: 5vw;
+  border: .1vw solid #ddd;
+  border-radius: .3vw;
+  box-shadow: .3vw .3vw .3vw #eee;
+  background: #eee;
+  text-align: center;
+}
+
+.confirm-item .posts-title {
+  text-align: left;
+}
+
+.confirm-item .confirm-content {
+  text-align: left;
+  margin: 0 0 3vw;
+  line-height: 1.5vw;
+  padding: .5vw;
+  font-size: .9vw;
+  letter-spacing: .05vw;
+}
+
+.confirm-item .input1 {
+  margin: 0 .5vw;
 }

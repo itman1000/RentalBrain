@@ -1,0 +1,22 @@
+<div class="page-title">
+  <h3>投稿確認</h3>
+</div>
+
+<div class="confirm-item">
+  <div class="container">
+    <div class="posts-title">
+      <%= @post.title %>
+    </div>
+    <div class="confirm-content">
+      <%= safe_join(@post.content.split("\n"),tag(:br)) %>
+    </div>
+
+    <%= form_with model: @post, data: { turbo: false } do |form| %>
+      <%= form.hidden_field :title %>
+      <%= form.hidden_field :content %>
+      <%= form.submit "確定", class: "input1" %>
+      <%= form.submit "修正", name: "back", class: "input1" %>
+    <% end %>
+  </div>
+</div>
+
