@@ -2,6 +2,8 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
+import "./custom/modal.js"
+
 import "./custom/carousel.js"
 import "./custom/top.js"
 

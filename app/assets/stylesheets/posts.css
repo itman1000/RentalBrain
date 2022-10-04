@@ -118,18 +118,64 @@
 }
 
 .posts-menus {
-  font-display: inline-block;
+  width: 100%;
   text-align: right;
-  margin-right: 1vw;
 }
 
 .pm-edit {
+  display: inline;
   margin-right: .5vw;
+  cursor: pointer;
 }
 
 .pm-edit:hover {
   color: #55f;
   border-bottom: .1vw solid #55f;
+}
+
+#mask {
+  background: rgba(0, 0, 0, .3);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#modal {
+  position: fixed;
+  width: 30vw;
+  height: 10vw;
+  top: 15vw;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  border-radius: .3vw;
+  background: #fff;
+  line-height: 1.5vw;
+  padding: 2vw;
+  font-size: .9vw;
+  letter-spacing: .05vw;
+}
+
+#modal p {
+  margin-bottom: 2vw;
+}
+
+#modal div {
+  display: inline-block;
+  text-align: center;
+  margin-left: 1vw;
+}
+
+#modal .buttons {
+  cursor: pointer;
+  margin-left: 2.8vw;
+}
+
+#mask.hidden2,
+#modal.hidden2 {
+  display: none;
 }
 
 /*** 新規投稿 ******************************************************/

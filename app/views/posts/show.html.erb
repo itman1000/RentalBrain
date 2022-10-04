@@ -16,12 +16,28 @@
       </div>
       <div class="posts-menus">
         <%= link_to '編集', "/posts/#{@post.id}/edit", class: 'pm-edit' %>
-        <%= link_to '削除', "/posts/#{@post.id}", data: { turbo_method: :delete }, class: 'pm-edit' %>
+        <div class="pm-edit" id="eliminate">
+          削除
+        </div>
       </div>
     </div>
 
     <div class="turn-back">
-      <%= link_to '戻る', posts_path, remote: false, class: 'return' %>
+    <%= link_to '戻る', posts_path, remote: false, class: 'return' %>
     </div>
   </div>
 </div>
+
+<div id="mask" class="hidden2"></div>
+
+<section id="modal" class="hidden2">
+  <p>本当に削除してよろしいですか？</p>
+  <div class="buttons">
+    <div id="del" class="input1">
+      削除
+    </div>
+    <div id="cancel" class="input1">
+      中止
+    </div>
+  </div>
+</section>
