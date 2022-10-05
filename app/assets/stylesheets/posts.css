@@ -152,7 +152,6 @@
   margin: 0 auto;
   border-radius: .3vw;
   background: #fff;
-  line-height: 1.5vw;
   padding: 2vw;
   font-size: .9vw;
   letter-spacing: .05vw;
@@ -247,7 +246,38 @@
   background: linear-gradient(#ccf, #99f);
 }
 
-  .input1:active {
+.input1:active {
+  transform: translate(.1vw, .1vw);
+  box-shadow: none;
+}
+
+#modal .buttons {
+  height: auto;
+}
+
+#modal .link_del {
+  display: inline-block;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.input2 {
+  display: block;
+  color: #fff;
+  font-size: 1.2vw;
+  height: 100%;
+  padding: .14vw 3vw;
+  margin-left: 1vw;
+  background: linear-gradient(#f88, #f55);
+  box-shadow: .1vw .1vw .1vw #aaa;
+}
+
+.input2:hover {
+  background: linear-gradient(#faa, #f77);
+}
+
+.input2:active {
   transform: translate(.1vw, .1vw);
   box-shadow: none;
 }

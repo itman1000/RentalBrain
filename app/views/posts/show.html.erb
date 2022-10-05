@@ -33,8 +33,8 @@
 <section id="modal" class="hidden2">
   <p>本当に削除してよろしいですか？</p>
   <div class="buttons">
-    <div id="del" class="input1">
-      削除
+    <div id="del" class="link_del">
+      <%= link_to '削除', "/posts/#{@post.id}", data: { turbo_method: :delete }, class: 'input2' %>
     </div>
     <div id="cancel" class="input1">
       中止

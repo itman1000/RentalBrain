@@ -4,6 +4,8 @@
   const modal = document.getElementById('modal');
   const mask = document.getElementById('mask');
   const eliminate = document.getElementById('eliminate');
+  const del = document.getElementById('del');
+  const cancel = document.getElementById('cancel');
 
   console.log(eliminate);
   
@@ -13,4 +15,11 @@
       mask.classList.remove('hidden2');
     });
   });
+
+  cancel.addEventListener("click", () => {
+    modal.classList.add('hidden2');
+    mask.classList.add('hidden2');
+  });
+  
+
 }
