@@ -4,49 +4,14 @@
   margin: 2vw auto;
 }
 
-.header0 {
-  position: relative;
-  display: flex;
-  background: #55f;
-}
-
-.header0 ul {
-  display: flex;
-  position: absolute;
-  flex: float;
-  right: 2vw;
-  padding: 1vw;
-}
-
-.header0 ul li {
-  margin-right: 2vw;
-}
-
-.header-logo {
-  padding: 1vw;
-  /* background: linear-gradient(to right, #55f, #aaf); */
-}
-
-.header-link1 {
-  font-size: 2vw;
-  color: #fff;
-}
-
-.header-link2 {
-  font-size: 1vw;
-  color: #fff;
-}
-
-.header-link1:hover,
-.header-link2:hover {
-  color: #aaf
+.posts-index {
+  width: 70%;
 }
 
 .page-title h3 {
   padding: 1vw 0;
   font-size: 1.5vw;
   text-align: center;
-  letter-spacing:.1vw;
   background: #ddd;
   margin-bottom: 5vw;
 }
@@ -55,7 +20,6 @@
   color: #333;
   font-size: .9vw;
   letter-spacing: .05vw;
-  /* padding: 1vw; */
   border: .1vw solid #ddd;
   box-shadow: .3vw .3vw .3vw #eee;
   line-height: 1.5vw;
@@ -122,13 +86,13 @@
   text-align: right;
 }
 
-.pm-edit {
+.edit-menu {
   display: inline;
   margin-right: .5vw;
   cursor: pointer;
 }
 
-.pm-edit:hover {
+.edit-menu:hover {
   color: #55f;
   border-bottom: .1vw solid #55f;
 }
@@ -179,7 +143,7 @@
 
 /*** 新規投稿 ******************************************************/
 .posts-new {
-  /* position: relative; */
+  position: relative;
   border: .1vw solid #ddd;
   border-radius: .3vw;
   box-shadow: .3vw .3vw .3vw #eee;
@@ -189,8 +153,10 @@
   text-align: center;
 }
 
-.posts-new .container {
-  position: relative;
+.posts-new > .container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .form-error {
@@ -200,15 +166,34 @@
   display: inline;
 }
 
-.main .text-field {
+.text-field-group {
+  width: 100%;
+  margin: 3vw 4vw 0 auto;
+  display: flex;
+  justify-content: right;
+  align-items: start;
+  width: 90%;
+}
+
+.text-area-group {
+  width: 100%;
+  height: 50%;
+  margin: 1vw 4vw 1.5vw auto;
+  display: flex;
+  justify-content: right;
+  align-items: start;
+  width: 90%;
+}
+
+.posts-new p {
+  margin-right: .5vw;
+}
+
+.text-field {
   width: 90%;
   height: 2vw;
   border: .1vw solid #ccc;
   background: #fff;
-  margin: 0 auto;
-  margin-top: 3vw;
-  display: block;
-  flex: left;
   outline: none;
   padding: .5vw;
   font-size: .9vw;
@@ -216,14 +201,10 @@
   text-align: left;
 }
 
-.main .text-area {
+.text-area {
   width: 90%;
-  height: 50%;
+  height: 100%;
   border: .1vw solid #ccc;
-  display: block;
-  margin: 0 auto;
-  margin-top: 1.5vw;
-  margin-bottom: 2vw;
   background: #fff;
   resize: none;
   outline: none;
@@ -282,7 +263,7 @@
   box-shadow: none;
 }
 
-/*** 投稿確認 ******************************************************/
+/*** 投稿内容確認 ******************************************************/
 .confirm-item .container {
   width: 70%;
   height: 100%;

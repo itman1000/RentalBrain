@@ -294,3 +294,42 @@ nav .current {
   width: auto;
   height: 2vw;
 }
+
+/*** ヘッダー ******************************************************/
+.header0 {
+  position: relative;
+  display: flex;
+  background: #55f;
+}
+
+.header0 ul {
+  display: flex;
+  position: absolute;
+  flex: float;
+  right: 2vw;
+  padding: 1vw;
+}
+
+.header0 ul li {
+  margin-right: 2vw;
+}
+
+.header-logo {
+  padding: 1vw;
+  /* background: linear-gradient(to right, #55f, #aaf); */
+}
+
+.header-link1 {
+  font-size: 2vw;
+  color: #fff;
+}
+
+.header-link2 {
+  font-size: 1vw;
+  color: #fff;
+}
+
+.header-link1:hover,
+.header-link2:hover {
+  color: #aaf
+}

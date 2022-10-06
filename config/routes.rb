@@ -1,7 +1,16 @@
 Rails.application.routes.draw do  
-  resources :posts
+  resources :posts, :users
 
   resources :posts do
+    collection do
+      post 'confirm'
+    end
+    member do
+      patch 'edit_confirm'
+    end
+  end
+
+  resources :users do
     collection do
       post 'confirm'
     end

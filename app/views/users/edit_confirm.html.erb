@@ -1,0 +1,21 @@
+<div class="page-title">
+  <h3>変更内容確認</h3>
+</div>
+
+<div class="user-confirm-item">
+  <div class="container">
+    <div class="user-name">
+      <p><%= @user.name %></p>
+    </div>
+    <div class="email">
+      <p><%= @user.email %></p>
+    </div>
+
+    <%= form_with model: @user, data: { turbo: false } do |form| %>
+      <%= form.hidden_field :name %>
+      <%= form.hidden_field :email %>
+      <%= form.submit "登録", class: "input1" %>
+      <%= form.submit "修正", name: "back", class: "input1" %>
+    <% end %>
+  </div>
+</div>

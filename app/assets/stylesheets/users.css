@@ -1,0 +1,140 @@
+/*** ユーザー一覧 ******************************************************/
+.users-index .container {
+  width: 70%;
+}
+
+.users-index-item {
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: .9vw;
+  letter-spacing: .05vw;
+  border: .1vw solid #ddd;
+  box-shadow: .3vw .3vw .3vw #eee;
+  border-radius: .3vw;
+}
+
+.index-user-image {
+  width: 6vw;
+  height: 6vw;
+  max-width: 6vw;
+  max-height: 6vw;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: .5vw .5vw .5vw 2vw;
+}
+
+.index-user-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-right {
+  margin: .5vw;
+}
+
+
+.users-index-item:hover {
+  background: #eef;
+}
+
+/*** ユーザー詳細 ******************************************************/
+.users-show-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-image {
+  width: 16vw;
+  height: 16vw;
+  max-width: 16vw;
+  max-height: 16vw;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1vw;
+}
+
+.user-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.users-menus {
+  width: 100%;
+  text-align: center;
+  margin-top: 2vw;
+}
+
+.user-menu {
+  display: inline;
+  margin-right: .5vw;
+  cursor: pointer;
+}
+
+.user-menu:hover {
+  color: #55f;
+  border-bottom: .1vw solid #55f;
+}
+
+/*** ユーザー登録 ******************************************************/
+.users-new {
+  position: relative;
+  border: .1vw solid #ddd;
+  border-radius: .3vw;
+  box-shadow: .3vw .3vw .3vw #eee;
+  width: 40%;
+  height: 18vw;
+  background: #eee;
+  text-align: center;
+}
+
+.users-new p {
+  margin-right: .5vw;
+}
+
+.users-new > .container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.users-text-field {
+  width: 75%;
+  height: 2vw;
+  border: .1vw solid #ccc;
+  background: #fff;
+  outline: none;
+  padding: .5vw;
+  font-size: .9vw;
+  letter-spacing: .05vw;
+  text-align: left;
+}
+
+.users-new .input1 {
+  margin-top: 1.5vw;
+}
+
+/*** 登録情報確認 ******************************************************/
+.user-confirm-item .container {
+  width: 40%;
+  height: 100%;
+  padding: 2vw;
+  margin-bottom: 5vw;
+  border: .1vw solid #ddd;
+  border-radius: .3vw;
+  box-shadow: .3vw .3vw .3vw #eee;
+  background: #eee;
+  text-align: center;
+}
+
+.user-confirm-item p {
+  line-height: 2vw;
+}
+
+.user-confirm-item .input1 {
+  margin: 2vw .5vw 0;
+}
+

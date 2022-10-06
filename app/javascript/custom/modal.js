@@ -16,10 +16,10 @@
     });
   });
 
-  cancel.addEventListener("click", () => {
-    modal.classList.add('hidden2');
-    mask.classList.add('hidden2');
+  document.addEventListener("DOMContentLoaded", () => {
+    cancel.addEventListener("click", () => {
+      modal.classList.add('hidden2');
+      mask.classList.add('hidden2');
+    });
   });
-  
-
 }
