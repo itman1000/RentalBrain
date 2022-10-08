@@ -4,6 +4,10 @@
 
 <div class="user-confirm-item">
   <div class="container">
+    <% if @user.avatar.attached? %>
+      <%=  @user.avatar %>
+      <%= image_tag @user.avatar.variant(resize_to_limit: [100, 100]) %>
+    <% end %>
     <div class="user-name">
       <p><%= @user.name %></p>
     </div>
@@ -14,6 +18,7 @@
     <%= form_with model: @user, data: { turbo: false } do |form| %>
       <%= form.hidden_field :name %>
       <%= form.hidden_field :email %>
+      <%= form.hidden_field :avatar %>
       <%= form.submit "登録", class: "input1" %>
       <%= form.submit "修正", name: "back", class: "input1" %>
     <% end %>

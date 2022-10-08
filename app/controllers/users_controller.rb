@@ -20,7 +20,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.image_name = "default_user.png"
     if params[:back] || !@user.save
       render :new
     else
@@ -55,7 +54,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :avatar)
   end
 
 end

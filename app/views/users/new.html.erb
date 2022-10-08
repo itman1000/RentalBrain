@@ -19,6 +19,10 @@
         <p>E-mail</p>
         <%= form.text_field :email, class: "users-text-field" %>
       </div>
+      <div class="text-field-group">
+        <p>アイコン画像</p>
+        <%= form.file_field :avatar, class: "users-file-field" %>
+      </div>
       <%= form.submit "登録", class: "input1" %>
     </div>
   </div>

@@ -4,8 +4,9 @@
 }
 
 .users-index-item {
-  display: flex;
-  align-items: center;
+  /* display: flex; */
+  /* align-items: center; */
+  position: relative;
   color: #333;
   font-size: .9vw;
   letter-spacing: .05vw;
@@ -15,6 +16,8 @@
 }
 
 .index-user-image {
+  display: inline-block;
+  /* position: relative; */
   width: 6vw;
   height: 6vw;
   max-width: 6vw;
@@ -30,13 +33,25 @@
   object-fit: cover;
 }
 
-.user-right {
-  margin: .5vw;
+.users-index-item > .user-right {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
 }
 
+.index-item2 {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  cursor: pointer;
+  padding: 2.3vw 0 0 10vw;
+  z-index: 1;
+}
 
-.users-index-item:hover {
-  background: #eef;
+.index-item2:hover {
+  background: rgba(238, 238, 255, .5);
 }
 
 /*** ユーザー詳細 ******************************************************/
@@ -86,7 +101,7 @@
   border-radius: .3vw;
   box-shadow: .3vw .3vw .3vw #eee;
   width: 40%;
-  height: 18vw;
+  height: 23vw;
   background: #eee;
   text-align: center;
 }
@@ -111,6 +126,15 @@
   font-size: .9vw;
   letter-spacing: .05vw;
   text-align: left;
+}
+
+.users-file-field {
+  width: 75%;
+  height: 3vw;
+  border: .1vw solid #ccc;
+  background: #fff;
+  outline: none;
+  padding: .5vw;
 }
 
 .users-new .input1 {
