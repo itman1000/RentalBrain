@@ -13,16 +13,24 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def confirm
-    @user = User.new(user_params)
-    render :new if @user.invalid?
-  end
-
   def create
     @user = User.new(user_params)
-    @user.image_name = "default_user.png"
-    if params[:back] || !@user.save
+    if !@user.save
       render :new
+    else
+      redirect_to confirm_user_path(@user)
+    end
+  end
+
+  def confirm
+    @user = User.find(params[:id])
+  end
+
+  def confirmed
+    @user = User.find(params[:id])
+    if params[:back]
+      @user.destroy
+      render :new, status: :see_other;
     else
       redirect_to user_path(@user)
     end
@@ -40,10 +48,10 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if params[:back] || !@user.update(user_params)
+    if !@user.update(user_params)
       render :edit
     else
-      redirect_to user_path(@user)
+      redirect_to confirm_user_path(@user)
     end
   end
 
@@ -55,7 +63,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :avatar)
   end
 
 end

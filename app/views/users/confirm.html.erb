@@ -4,16 +4,24 @@
 
 <div class="user-confirm-item">
   <div class="container">
-    <div class="user-name">
-      <p><%= @user.name %></p>
-    </div>
-    <div class="email">
-      <p><%= @user.email %></p>
+    <div class="users-show-item">
+      <div class="user-image">
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar %>
+        <% end %>
+      </div>
+      <div class="user-name">
+        <p><%= @user.name %></p>
+      </div>
+      <div class="email">
+        <p><%= @user.email %></p>
+      </div>
     </div>
 
-    <%= form_with model: @user, data: { turbo: false } do |form| %>
+    <%= form_with model: @user, url: confirmed_user_path(@user), data: { turbo: false } do |form| %>
       <%= form.hidden_field :name %>
       <%= form.hidden_field :email %>
+      <%= form.hidden_field :avatar %>
       <%= form.submit "登録", class: "input1" %>
       <%= form.submit "修正", name: "back", class: "input1" %>
     <% end %>
