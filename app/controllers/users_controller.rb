@@ -40,18 +40,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def edit_confirm
-    @user = User.find(params[:id])
-    @user.attributes = user_params
-    render :edit if @user.invalid?
-  end
-
   def update
     @user = User.find(params[:id])
+    # @user.attributes = user_params
     if !@user.update(user_params)
       render :edit
     else
-      redirect_to confirm_user_path(@user)
+      redirect_to user_path(@user)
     end
   end
 
