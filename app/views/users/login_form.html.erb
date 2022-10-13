@@ -1,0 +1,29 @@
+<div class="page-title">
+  <h3>ログインフォーム</h3>
+</div>
+
+<%= form_with model: @user, data: { turbo: false } do |form| %>
+  <div class="main users-new">
+    <div class="container">
+      <% @user.errors.full_messages.each do |message| %>
+        <div class="form-error">
+          <%= message %>
+        </div>
+      <% end %>
+
+      <div class="text-field-group">
+        <p>ユーザー名</p>
+        <%= color_field :favorite_color, class: "users-text-field" %>
+      </div>
+      <div class="text-field-group">
+        <p>E-mail</p>
+        <%= form.text_field :email, class: "users-text-field" %>
+      </div>
+      <%= form.submit "ログイン", class: "input1" %>
+    </div>
+  </div>
+<% end %>
+
+<div class="turn-back">
+  <%= link_to '戻る', '/', remote: false, class: 'return' %>
+</div>

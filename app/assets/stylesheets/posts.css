@@ -185,8 +185,10 @@
   width: 90%;
 }
 
-.posts-new p {
+.text-field-group label,
+.text-area-group label {
   margin-right: .5vw;
+  margin-top: .3vw;
 }
 
 .text-field {

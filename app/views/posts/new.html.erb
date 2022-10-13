@@ -12,11 +12,11 @@
       <% end %>
 
       <div class="text-field-group">
-        <p>タイトル</p>
+        <%= form.label :title, "タイトル" %>
         <%= form.text_field :title, class: "text-field" %>
       </div>
       <div class="text-area-group">
-        <p>依頼内容</p>
+        <%= form.label :content, "依頼内容" %>
         <%= form.text_area :content, class: "text-area" %>
       </div>
       <%= form.submit "投稿", class: "input1" %>

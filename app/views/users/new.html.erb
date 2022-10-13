@@ -11,16 +11,16 @@
         </div>
       <% end %>
 
-      <div class="text-field-group">
-        <p>ユーザー名</p>
+      <div class="text-field-group-users">
+        <%= form.label :name, "ユーザー名" %>
         <%= form.text_field :name, class: "users-text-field" %>
       </div>
-      <div class="text-field-group">
-        <p>E-mail</p>
+      <div class="text-field-group-users">
+        <%= form.label :email, "E-mail" %>
         <%= form.text_field :email, class: "users-text-field" %>
       </div>
-      <div class="text-field-group">
-        <p>アイコン画像</p>
+      <div class="file-field-group">
+        <%= form.label :avatar, "アイコン画像" %>
         <%= form.file_field :avatar, class: "users-file-field" %>
       </div>
       <%= form.submit "登録", class: "input1" %>

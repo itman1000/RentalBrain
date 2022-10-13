@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   layout 'default_layouts'
 
+  def login_form
+    @user = User.new
+  end
+
   def index
     @users = User.all.order(created_at: :desc)
   end

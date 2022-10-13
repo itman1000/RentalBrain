@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   end
 
   resources :users do
+    collection do
+      get 'login_form'
+    end
     member do
       get 'confirm'
       patch 'confirmed'
