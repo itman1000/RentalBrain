@@ -2,28 +2,28 @@
   <h3>ログインフォーム</h3>
 </div>
 
-<%= form_with model: @user, data: { turbo: false } do |form| %>
-  <div class="main users-new">
+<%= form_with url: login_users_path, data: { turbo: false } do |form| %>
+  <div class="main login-form">
     <div class="container">
-      <% @user.errors.full_messages.each do |message| %>
-        <div class="form-error">
-          <%= message %>
-        </div>
-      <% end %>
-
-      <div class="text-field-group">
-        <p>ユーザー名</p>
-        <%= color_field :favorite_color, class: "users-text-field" %>
+      <div class="login-field-group">
+        <%= form.label :email, "E-mail" %>
+        <%= form.text_field :email, class: "users-login-field" %>
       </div>
-      <div class="text-field-group">
-        <p>E-mail</p>
-        <%= form.text_field :email, class: "users-text-field" %>
+      <div class="login-field-group">
+        <%= form.label :password %>
+        <%= form.password_field :password, class: "users-login-field" %>
       </div>
-      <%= form.submit "ログイン", class: "input1" %>
+      <div>
+        <%= form.submit "ログイン", class: "input1" %>
+      </div>
+      
+      <div class="form-error">
+        <%= @error_message %>
+      </div>
     </div>
   </div>
 <% end %>
 
 <div class="turn-back">
-  <%= link_to '戻る', '/', remote: false, class: 'return' %>
+  <%= link_to '戻る', '/', data: { turbo: false }, class: 'return' %>
 </div>

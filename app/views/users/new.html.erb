@@ -5,12 +5,6 @@
 <%= form_with model: @user, data: { turbo: false } do |form| %>
   <div class="main users-new">
     <div class="container">
-      <% @user.errors.full_messages.each do |message| %>
-        <div class="form-error">
-          <%= message %>
-        </div>
-      <% end %>
-
       <div class="text-field-group-users">
         <%= form.label :name, "ユーザー名" %>
         <%= form.text_field :name, class: "users-text-field" %>
@@ -19,11 +13,24 @@
         <%= form.label :email, "E-mail" %>
         <%= form.text_field :email, class: "users-text-field" %>
       </div>
+      <div class="login-field-group">
+        <%= form.label :password %>
+        <%= form.password_field :password, class: "users-login-field" %>
+      </div>
+      
       <div class="file-field-group">
         <%= form.label :avatar, "アイコン画像" %>
         <%= form.file_field :avatar, class: "users-file-field" %>
       </div>
-      <%= form.submit "登録", class: "input1" %>
+      <div>
+        <%= form.submit "登録", class: "input1" %>
+      </div>
+      
+      <% @user.errors.full_messages.each do |message| %>
+        <div class="form-error">
+          <%= message %>
+        </div>
+      <% end %>
     </div>
   </div>
 <% end %>

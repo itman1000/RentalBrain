@@ -221,6 +221,7 @@
   color: #fff;
   font-size: 1.2vw;
   padding: .5vw 3vw;
+  margin-bottom: .5vw;
   background: linear-gradient(#aaf, #77f);
   box-shadow: .1vw .1vw .1vw #aaa;
 }

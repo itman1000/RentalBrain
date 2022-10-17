@@ -2,7 +2,22 @@ class UsersController < ApplicationController
   layout 'default_layouts'
 
   def login_form
-    @user = User.new
+  end
+
+  def login
+    @user = User.find_by(email: params[:email], password: params[:password])
+    if @user
+      session[:user_id] = @user.id
+      redirect_to(posts_path)
+    else
+      @error_message = "メールアドレスまたはパスワードが間違っています"
+      render(login_form_users_path)
+    end
+  end
+
+  def logout
+    session[:user_id] = nil
+    redirect_to controller: :home, action: :top
   end
 
   def index
@@ -46,7 +61,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    # @user.attributes = user_params
     if !@user.update(user_params)
       render :edit
     else

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :users do
     collection do
       get 'login_form'
+      post 'login'
+      get 'logout'
     end
     member do
       get 'confirm'

@@ -5,12 +5,6 @@
 <%= form_with model: @post, url: confirm_posts_path(@post), data: { turbo: false } do |form| %>
   <div class="main posts-new">
     <div class="container">
-      <% @post.errors.full_messages.each do |message| %>
-        <div class="form-error">
-          <%= message %>
-        </div>
-      <% end %>
-
       <div class="text-field-group">
         <%= form.label :title, "タイトル" %>
         <%= form.text_field :title, class: "text-field" %>
@@ -19,7 +13,15 @@
         <%= form.label :content, "依頼内容" %>
         <%= form.text_area :content, class: "text-area" %>
       </div>
-      <%= form.submit "投稿", class: "input1" %>
+      <div>
+        <%= form.submit "投稿", class: "input1" %>
+      </div>
+      
+      <% @post.errors.full_messages.each do |message| %>
+        <div class="form-error">
+          <%= message %>
+        </div>
+      <% end %>
     </div>
   </div>
 <% end %>
