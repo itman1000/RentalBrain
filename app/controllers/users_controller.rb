@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
   layout 'default_layouts'
+  before_action :require_login, only: [:show, :destroy]
 
   def login_form
   end
 
   def login
-    @user = User.find_by(email: params[:email], password: params[:password])
-    if @user
+    @user = User.find_by(email: params[:email].downcase)
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect_to(posts_path)
     else
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
 
   def logout
     session[:user_id] = nil
-    redirect_to controller: :home, action: :top
+    redirect_to '/'
   end
 
   def index
@@ -30,6 +31,8 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @email_input_flg = nil
+    @password_input_flg = nil
   end
 
   def create
@@ -51,6 +54,7 @@ class UsersController < ApplicationController
       @user.destroy
       render :new, status: :see_other;
     else
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     end
   end
@@ -76,7 +80,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :avatar)
+    params.require(:user).permit(:name, :email, :avatar, :password, :password_confirmation)
   end
 
 end

@@ -17,7 +17,10 @@
         <%= form.label :password %>
         <%= form.password_field :password, class: "users-login-field" %>
       </div>
-      
+      <div class="login-field-group">
+        <%= form.label :password_confirmation, 'password(確認)' %>
+        <%= form.password_field :password_confirmation, class: "users-login-field" %>
+      </div>
       <div class="file-field-group">
         <%= form.label :avatar, "アイコン画像" %>
         <%= form.file_field :avatar, class: "users-file-field" %>
@@ -27,8 +30,16 @@
       </div>
       
       <% @user.errors.full_messages.each do |message| %>
-        <div class="form-error">
+        <div class="form-error">    
+          <% message = error_message_change(@email_input_flg, @password_input_flg, message) %>
           <%= message %>
+
+          <% if message == 'Emailを入力してください' %>  
+            <% @email_input_flg = true %>
+          <% end %>
+          <% if message == 'Passwordを入力してください' %>
+            <% @password_input_flg = true %>
+          <% end %>
         </div>
       <% end %>
     </div>
@@ -36,5 +47,5 @@
 <% end %>
 
 <div class="turn-back">
-  <%= link_to '戻る', users_path, remote: false, class: 'return' %>
+  <%= link_to '戻る', '/', data: { turbo: false }, class: 'return' %>
 </div>

@@ -100,8 +100,8 @@
   border: .1vw solid #ddd;
   border-radius: .3vw;
   box-shadow: .3vw .3vw .3vw #eee;
-  width: 30%;
-  height: 23vw;
+  width: 40%;
+  height: 33vw;
   background: #eee;
   text-align: center;
 }
@@ -237,4 +237,5 @@
 
 .form-error {
   line-height: 12px;
+  letter-spacing: .05vw;
 }
