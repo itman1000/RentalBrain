@@ -17,7 +17,6 @@ class UsersController < ApplicationController
   end
 
   def logout
-    session[:user_id] = nil
     redirect_to '/'
   end
 

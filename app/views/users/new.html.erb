@@ -32,7 +32,9 @@
       <% @user.errors.full_messages.each do |message| %>
         <div class="form-error">    
           <% message = error_message_change(@email_input_flg, @password_input_flg, message) %>
-          <%= message %>
+          <% if message %>
+            <%= "#{message}。" %>
+          <% end %>
 
           <% if message == 'Emailを入力してください' %>  
             <% @email_input_flg = true %>
