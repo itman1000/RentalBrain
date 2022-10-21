@@ -6,12 +6,10 @@
   <div class="container">
     <% @users.each do |user| %>
       <div class="users-index-item">
-        <div class="user-right">
-          <%= link_to "#{user.name}", "/users/#{user.id}", data: { turbo: false }, class: "index-item2" %>
-        </div>
         <div class="index-user-image">
           <%= image_tag user.avatar %>
         </div>
+        <%= link_to "#{user.name}", "/users/#{user.id}", data: { turbo: false }, class: "index-item2" %>
       </div>
     <% end %>
   </div>

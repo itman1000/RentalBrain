@@ -5,6 +5,12 @@
 <div class="main posts-show">
   <div class="container">
     <div class="posts-show-item">
+      <div class="posts-user-image">
+        <%= image_tag @user.avatar %>
+      </div>
+      <div class="posts-user-name"> 
+        <%= @user.name %>
+      </div>
       <div class="posts-title">
         <%= @post.title %>
       </div>

@@ -31,4 +31,5 @@ module UsersHelper
     end
     return message
   end
+
 end

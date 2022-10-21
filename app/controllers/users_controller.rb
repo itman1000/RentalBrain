@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   layout 'default_layouts'
-  before_action :require_login, only: [:show, :destroy]
+  before_action :require_login, only: [:edit, :index, :show, :destroy]
+  before_action :forbid_login_user, only: [:new, :create, :login_form, :login]
+  before_action :ensure_correct_user, only: [:edit, :update]
+
 
   def login_form
   end
@@ -74,7 +77,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to User, status: :see_other
+    redirect_to '/'
   end
 
   private

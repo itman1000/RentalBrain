@@ -11,15 +11,17 @@
       <div class="user-name"> 
         <p><%= @user.name %></p>
       </div>
-      <div class="email">
-        <p><%= @user.email %></p>
-      </div>
-      <div class="users-menus">
-        <%= link_to '編集', "/users/#{@user.id}/edit", class: 'user-menu' %>
-        <div class="user-menu" id="eliminate">
-          削除
+      <% if @user.id == @current_user.id %>
+        <div class="email">
+          <p><%= @user.email %></p>
         </div>
-      </div>
+        <div class="users-menus">
+          <%= link_to '編集', edit_user_path, data: { turbo: false }, class: 'user-menu' %>
+          <div class="user-menu" id="eliminate">
+            削除
+          </div>
+        </div>
+      <% end %>
     </div>
 
     <div class="turn-back">

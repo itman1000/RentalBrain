@@ -4,8 +4,6 @@
 }
 
 .users-index-item {
-  /* display: flex; */
-  /* align-items: center; */
   position: relative;
   color: #333;
   font-size: .9vw;
@@ -17,7 +15,6 @@
 
 .index-user-image {
   display: inline-block;
-  /* position: relative; */
   width: 6vw;
   height: 6vw;
   max-width: 6vw;
@@ -33,19 +30,13 @@
   object-fit: cover;
 }
 
-.users-index-item > .user-right {
-  display: inline-block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-}
-
 .index-item2 {
   width: 100%;
   height: 100%;
+  position: absolute;
   display: inline-block;
   cursor: pointer;
+  left: 0;
   padding: 2.3vw 0 0 10vw;
   z-index: 1;
 }

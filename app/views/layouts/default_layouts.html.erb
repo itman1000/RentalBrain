@@ -16,10 +16,9 @@
         <%= link_to 'RentalBrain', '/', class: "header-link1", data: { turbo: false } %>
       </div>
       <ul class="header-menus">
-        <% current_user = User.find_by(id: session[:user_id]) %>
-        <% if current_user %>
+        <% if @current_user %>
           <li>
-            <%= link_to current_user.name, user_path(current_user), remote: false, class: "header-link2" %>
+            <%= link_to @current_user.name, user_path(@current_user), data: { turbo: false }, class: "header-link2" %>
           </li>
           <li>
             <%= link_to '新規投稿', new_post_path, remote: false, class: "header-link2" %>

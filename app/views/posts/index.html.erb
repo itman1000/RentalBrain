@@ -6,6 +6,12 @@
   <div class="container">
     <% @posts.each do |post| %>
       <div class="posts-index-item">
+        <div class="posts-index-user-image">
+          <%= image_tag post.user.avatar %>
+        </div>
+        <div class="posts-index-user-name">
+          <%= post.user.name %>
+        </div>
         <%= link_to "#{post.title}", "/posts/#{post.id}", data: { turbo: false }, class: "index-item" %>
       </div>
     <% end %>
