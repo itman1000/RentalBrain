@@ -46,6 +46,10 @@
 }
 
 /*** ユーザー詳細 ******************************************************/
+.user-show {
+  width: 70%;
+}
+
 .users-show-item {
   display: flex;
   flex-direction: column;
@@ -71,7 +75,7 @@
 .users-menus {
   width: 100%;
   text-align: center;
-  margin-top: 2vw;
+  margin-top: 1vw;
 }
 
 .user-menu {
@@ -83,6 +87,59 @@
 .user-menu:hover {
   color: #55f;
   border-bottom: .1vw solid #55f;
+}
+
+.users-show-item2 {
+  margin-top: 3vw;
+}
+
+.posts-index-item2  {
+  position: relative;
+  color: #333;
+  font-size: .9vw;
+  letter-spacing: .05vw;
+  border: .1vw solid #ddd;
+  box-shadow: .3vw .3vw .3vw #eee;
+  line-height: 1.5vw;
+  border-radius: .3vw;
+}
+
+.posts-index-user-name2 {
+  display: inline-block;
+  position: absolute;
+  margin: 2vw 0 1vw 1.5vw;
+}
+
+.posts-index-user-image2 {
+  display: inline-block;
+  width: 6vw;
+  height: 6vw;
+  max-width: 6vw;
+  max-height: 6vw;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: .5vw .5vw .5vw 2vw;
+}
+
+.posts-index-user-image2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.index-item3 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: inline-block;
+  cursor: pointer;
+  left: 0;
+  padding: 3.5vw 0 0 10.5vw;
+  z-index: 1;
+}
+
+.index-item3:hover {
+  background: rgba(238, 238, 255, .5);
 }
 
 /*** ユーザー登録 ******************************************************/

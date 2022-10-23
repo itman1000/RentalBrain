@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   layout 'default_layouts'
   before_action :require_login, only: [:confirm, :edit, :index, :new, :show]
+  before_action :ensure_correct_post_user, only: [:edit, :update, :destroy]
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -57,6 +58,14 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to Post, status: :see_other
+  end
+
+
+  def ensure_correct_post_user
+    @post = Post.find_by(id: params[:id])
+    if @post.user_id != @current_user.id
+      redirect_to posts_path
+    end
   end
 
   private

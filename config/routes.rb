@@ -21,6 +21,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :likes do
+    member do
+      post 'create'
+    end
+  end
+
+
   resources :posts, :users
 
 

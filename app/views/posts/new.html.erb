@@ -27,5 +27,5 @@
 <% end %>
 
 <div class="turn-back">
-  <%= link_to '戻る', posts_path, remote: false, class: 'return' %>
+  <%= link_to '戻る', posts_path, data: { turbo: false }, class: 'return' %>
 </div>

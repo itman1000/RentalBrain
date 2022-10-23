@@ -23,7 +23,20 @@
         </div>
       <% end %>
     </div>
-
+    
+    <div class="users-show-item2">
+      <% @user.posts.each do |post| %>
+        <div class="posts-index-item2">
+          <div class="posts-index-user-image2">
+            <%= image_tag post.user.avatar %>
+          </div>
+          <div class="posts-index-user-name2">
+            <%= post.user.name %>
+          </div>
+          <%= link_to "#{post.title}", "/posts/#{post.id}", data: { turbo: false }, class: "index-item3" %>
+        </div>
+      <% end %>
+    </div>
     <div class="turn-back">
     <%= link_to '戻る', users_path, remote: false, class: 'return' %>
     </div>

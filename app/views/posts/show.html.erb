@@ -20,16 +20,25 @@
       <div class="posts-time">
         <%= @post.updated_at %>
       </div>
-      <div class="posts-menus">
-        <%= link_to '編集', "/posts/#{@post.id}/edit", class: 'edit-menu' %>
-        <div class="edit-menu" id="eliminate">
-          削除
+
+      <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+        いいね！済み
+      <% else %>
+        <%= button_to "いいね！", "/likes/#{@post.id}/create", data: { turbo: false } %>
+      <% end %>
+
+      <% if @post.user_id == @current_user.id %>
+        <div class="posts-menus">
+          <%= link_to '編集', "/posts/#{@post.id}/edit", class: 'edit-menu' %>
+          <div class="edit-menu" id="eliminate">
+            削除
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
 
     <div class="turn-back">
-    <%= link_to '戻る', posts_path, remote: false, class: 'return' %>
+    <%= link_to '戻る', posts_path, data: { turbo: false }, class: 'return' %>
     </div>
   </div>
 </div>

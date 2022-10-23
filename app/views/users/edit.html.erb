@@ -49,5 +49,5 @@
 <% end %>
 
 <div class="turn-back">
-  <%= link_to '戻る', users_path, remote: false, class: 'return' %>
+  <%= link_to '戻る', user_path(@user), data: { turbo: false }, class: 'return' %>
 </div>
