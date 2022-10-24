@@ -1,0 +1,29 @@
+<div class="page-title">
+  <h3>ログインフォーム</h3>
+</div>
+
+<%= form_with url: login_users_path, data: { turbo: false } do |form| %>
+  <div class="main login-form">
+    <div class="container">
+      <div class="login-field-group">
+        <%= form.label :email, "E-mail" %>
+        <%= form.text_field :email, class: "users-login-field" %>
+      </div>
+      <div class="login-field-group">
+        <%= form.label :password %>
+        <%= form.password_field :password, class: "users-login-field" %>
+      </div>
+      <div>
+        <%= form.submit "ログイン", class: "input1" %>
+      </div>
+      
+      <div class="form-error">
+        <%= @error_message %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="turn-back">
+  <%= link_to '戻る', '/', data: { turbo: false }, class: 'return' %>
+</div>

@@ -4,8 +4,11 @@
 }
 
 .users-index-item {
+<<<<<<< HEAD
   /* display: flex; */
   /* align-items: center; */
+=======
+>>>>>>> main
   position: relative;
   color: #333;
   font-size: .9vw;
@@ -17,7 +20,10 @@
 
 .index-user-image {
   display: inline-block;
+<<<<<<< HEAD
   /* position: relative; */
+=======
+>>>>>>> main
   width: 6vw;
   height: 6vw;
   max-width: 6vw;
@@ -33,6 +39,7 @@
   object-fit: cover;
 }
 
+<<<<<<< HEAD
 .users-index-item > .user-right {
   display: inline-block;
   position: absolute;
@@ -50,11 +57,28 @@
   z-index: 1;
 }
 
+=======
+.index-item2 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: inline-block;
+  cursor: pointer;
+  left: 0;
+  padding: 2.3vw 0 0 10vw;
+  z-index: 1;
+}
+
+>>>>>>> main
 .index-item2:hover {
   background: rgba(238, 238, 255, .5);
 }
 
 /*** ユーザー詳細 ******************************************************/
+.user-show {
+  width: 70%;
+}
+
 .users-show-item {
   display: flex;
   flex-direction: column;
@@ -80,7 +104,7 @@
 .users-menus {
   width: 100%;
   text-align: center;
-  margin-top: 2vw;
+  margin-top: 1vw;
 }
 
 .user-menu {
@@ -94,6 +118,59 @@
   border-bottom: .1vw solid #55f;
 }
 
+.users-show-item2 {
+  margin-top: 3vw;
+}
+
+.posts-index-item2  {
+  position: relative;
+  color: #333;
+  font-size: .9vw;
+  letter-spacing: .05vw;
+  border: .1vw solid #ddd;
+  box-shadow: .3vw .3vw .3vw #eee;
+  line-height: 1.5vw;
+  border-radius: .3vw;
+}
+
+.posts-index-user-name2 {
+  display: inline-block;
+  position: absolute;
+  margin: 2vw 0 1vw 1.5vw;
+}
+
+.posts-index-user-image2 {
+  display: inline-block;
+  width: 6vw;
+  height: 6vw;
+  max-width: 6vw;
+  max-height: 6vw;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: .5vw .5vw .5vw 2vw;
+}
+
+.posts-index-user-image2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.index-item3 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: inline-block;
+  cursor: pointer;
+  left: 0;
+  padding: 3.5vw 0 0 10.5vw;
+  z-index: 1;
+}
+
+.index-item3:hover {
+  background: rgba(238, 238, 255, .5);
+}
+
 /*** ユーザー登録 ******************************************************/
 .users-new {
   position: relative;
@@ -101,7 +178,11 @@
   border-radius: .3vw;
   box-shadow: .3vw .3vw .3vw #eee;
   width: 40%;
+<<<<<<< HEAD
   height: 23vw;
+=======
+  height: 28vw;
+>>>>>>> main
   background: #eee;
   text-align: center;
 }
@@ -114,6 +195,26 @@
   position: absolute;
   width: 100%;
   height: 100%;
+}
+
+.text-field-group-users,
+.file-field-group {
+  width: 100%;
+  margin: 2vw 4vw 0 auto;
+  display: flex;
+  justify-content: right;
+  align-items: start;
+  width: 90%;
+}
+
+.text-field-group-users label {
+  margin-right: .5vw;
+  margin-top: .3vw;
+}
+
+.file-field-group label {
+  margin-right: .5vw;
+  margin-top: 1vw;
 }
 
 .users-text-field {
@@ -162,3 +263,60 @@
   margin: 2vw .5vw 0;
 }
 
+/*** ログイン画面 ******************************************************/
+.login-form {
+  position: relative;
+  border: .1vw solid #ddd;
+  border-radius: .3vw;
+  box-shadow: .3vw .3vw .3vw #eee;
+  width: 30%;
+  height: 15vw;
+  background: #eee;
+  text-align: center;
+}
+
+.login-form p {
+  margin-right: .5vw;
+}
+
+.login-form > .container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.login-field-group {
+  width: 100%;
+  margin: 2vw 4vw 0 auto;
+  display: flex;
+  justify-content: right;
+  align-items: start;
+  width: 90%;
+}
+
+.login-field-group label {
+  margin-right: .5vw;
+  margin-top: .3vw;
+}
+
+.users-login-field {
+  width: 75%;
+  height: 2vw;
+  border: .1vw solid #ccc;
+  background: #fff;
+  outline: none;
+  padding: .5vw;
+  font-size: .9vw;
+  letter-spacing: .05vw;
+  text-align: left;
+}
+
+.login-form .input1 {
+  margin-top: 2vw;
+  padding: .5vw 2vw;
+}
+
+.form-error {
+  font-size: .8vw;
+  line-height: 14px;
+}

@@ -15,10 +15,10 @@
       <h3 class="hidden">リサーチ検索代行サービス</h3>
       <ul id="header-menu" class="hidden">
         <li>
-          <%= link_to 'ログイン', posts_path, class: "hidden", data: { turbo: false } %>
+          <%= link_to 'ログイン', login_form_users_path, class: "hidden", data: { turbo: false } %>
         </li>
         <li>
-          <a href="#">新規登録</a>
+          <%= link_to '新規登録', new_user_path, class: "hidden", data: { turbo: false } %>
         </li>
       </ul>
     </div>

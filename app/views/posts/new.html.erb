@@ -5,25 +5,27 @@
 <%= form_with model: @post, url: confirm_posts_path(@post), data: { turbo: false } do |form| %>
   <div class="main posts-new">
     <div class="container">
+      <div class="text-field-group">
+        <%= form.label :title, "タイトル" %>
+        <%= form.text_field :title, class: "text-field" %>
+      </div>
+      <div class="text-area-group">
+        <%= form.label :content, "依頼内容" %>
+        <%= form.text_area :content, class: "text-area" %>
+      </div>
+      <div>
+        <%= form.submit "投稿", class: "input1" %>
+      </div>
+      
       <% @post.errors.full_messages.each do |message| %>
         <div class="form-error">
           <%= message %>
         </div>
       <% end %>
-
-      <div class="text-field-group">
-        <p>タイトル</p>
-        <%= form.text_field :title, class: "text-field" %>
-      </div>
-      <div class="text-area-group">
-        <p>依頼内容</p>
-        <%= form.text_area :content, class: "text-area" %>
-      </div>
-      <%= form.submit "投稿", class: "input1" %>
     </div>
   </div>
 <% end %>
 
 <div class="turn-back">
-  <%= link_to '戻る', posts_path, remote: false, class: 'return' %>
+  <%= link_to '戻る', posts_path, data: { turbo: false }, class: 'return' %>
 </div>

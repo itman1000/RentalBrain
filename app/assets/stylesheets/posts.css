@@ -17,6 +17,7 @@
 }
 
 .posts-index-item {
+  position: relative;
   color: #333;
   font-size: .9vw;
   letter-spacing: .05vw;
@@ -26,16 +27,45 @@
   border-radius: .3vw;
 }
 
+.posts-index-user-name {
+  display: inline-block;
+  position: absolute;
+  margin: 2vw 0 1vw 1.5vw;
+}
+
+.posts-index-user-image {
+  display: inline-block;
+  width: 6vw;
+  height: 6vw;
+  max-width: 6vw;
+  max-height: 6vw;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: .5vw .5vw .5vw 2vw;
+}
+
+.posts-index-user-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .index-item {
   width: 100%;
   height: 100%;
+<<<<<<< HEAD
+=======
+  position: absolute;
+>>>>>>> main
   display: inline-block;
   cursor: pointer;
-  padding: 1vw;
+  left: 0;
+  padding: 3.5vw 0 0 10.5vw;
+  z-index: 1;
 }
 
 .index-item:hover {
-  background: #eef;
+  background: rgba(238, 238, 255, .5);
 }
 
 
@@ -55,6 +85,29 @@
   letter-spacing: .05vw;
 
   border-radius: .3vw;
+}
+
+.posts-user-image {
+  display: inline-block;
+  width: 6vw;
+  height: 6vw;
+  max-width: 6vw;
+  max-height: 6vw;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 .5vw 0 2vw;
+}
+
+.posts-user-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.posts-user-name {
+  display: block;
+  margin-left: 3vw;
+  margin-bottom: 1vw;
 }
 
 .turn-back {
@@ -141,6 +194,28 @@
   display: none;
 }
 
+.unliked-btn {
+  color: #c1cbd2;
+}
+
+.liked-btn {
+  color: #ff2581;
+}
+
+.posts-show-item .button_to {
+  display: inline;
+}
+
+.posts-show-item .fa {
+  font-size: 1.2vw;
+  margin-top: .5vw;
+}
+
+.posts-show-item p {
+  display: inline;
+  vertical-align: top;
+}
+
 /*** 新規投稿 ******************************************************/
 .posts-new {
   position: relative;
@@ -185,8 +260,10 @@
   width: 90%;
 }
 
-.posts-new p {
+.text-field-group label,
+.text-area-group label {
   margin-right: .5vw;
+  margin-top: .3vw;
 }
 
 .text-field {
@@ -219,6 +296,7 @@
   color: #fff;
   font-size: 1.2vw;
   padding: .5vw 3vw;
+  margin-bottom: .5vw;
   background: linear-gradient(#aaf, #77f);
   box-shadow: .1vw .1vw .1vw #aaa;
 }

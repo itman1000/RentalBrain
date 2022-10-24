@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   def top
-  end
-
-  def about
+    session[:user_id] = nil
+    @current_user = nil
   end
 end

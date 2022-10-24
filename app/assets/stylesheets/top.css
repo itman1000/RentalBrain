@@ -91,7 +91,7 @@ header .container h3.hidden {
 
 #header-menu {
   opacity: 1;
-  transition: opacity 1s 2.5s;
+  transition: opacity 1s 2s;
 }
 
 #header-menu.hidden {

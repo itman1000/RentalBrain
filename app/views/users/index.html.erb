@@ -10,8 +10,14 @@
           <%= link_to "#{user.name}", "/users/#{user.id}", data: { turbo: false }, class: "index-item2" %>
         </div>
         <div class="index-user-image">
+<<<<<<< HEAD
           <img src="<%= "/user_images/#{user.image_name}" %>">
         </div>
+=======
+          <%= image_tag user.avatar %>
+        </div>
+        <%= link_to "#{user.name}", "/users/#{user.id}", data: { turbo: false }, class: "index-item2" %>
+>>>>>>> main
       </div>
     <% end %>
   </div>
