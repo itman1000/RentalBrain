@@ -191,6 +191,28 @@
   display: none;
 }
 
+.unliked-btn {
+  color: #c1cbd2;
+}
+
+.liked-btn {
+  color: #ff2581;
+}
+
+.posts-show-item .button_to {
+  display: inline;
+}
+
+.posts-show-item .fa {
+  font-size: 1.2vw;
+  margin-top: .5vw;
+}
+
+.posts-show-item p {
+  display: inline;
+  vertical-align: top;
+}
+
 /*** 新規投稿 ******************************************************/
 .posts-new {
   position: relative;

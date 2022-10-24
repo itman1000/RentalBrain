@@ -21,17 +21,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :likes do
-    member do
-      post 'create'
-    end
-  end
-
+  post 'likes/:post_id/create', to: 'likes#create'
+  post 'likes/:post_id/destroy', to: 'likes#destroy'
 
   resources :posts, :users
 
 
-  get '/' => 'home#top'
+  get '/', to: 'home#top'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

@@ -3,10 +3,14 @@ class LikesController < ApplicationController
 
   def create
     @like = Like.new(user_id: @current_user.id, post_id: params[:post_id])
-    if !@like.save
-      redirect_to posts_path
-    end
-    
-    redirect_to post_path(@like.post_id)
+    @like.save
+    redirect_to ("/posts/#{params[:post_id]}")
   end
+
+  def destroy
+    @like = Like.find_by(user_id: @current_user.id, post_id: params[:post_id])
+    @like.destroy
+    redirect_to ("/posts/#{params[:post_id]}"), status: :see_other
+  end
+
 end

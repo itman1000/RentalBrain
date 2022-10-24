@@ -22,10 +22,15 @@
       </div>
 
       <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
-        いいね！済み
+        <%= button_to "/likes/#{@post.id}/destroy", data: { turbo_method: :delete } do %>
+          <span class="fa fa-heart liked-btn"></span>
+        <% end %>
       <% else %>
-        <%= button_to "いいね！", "/likes/#{@post.id}/create", data: { turbo: false } %>
+        <%= button_to "/likes/#{@post.id}/create", data: { turbo_method: :post } do %>
+          <span class="fa fa-heart unliked-btn"></span>
+        <% end %>
       <% end %>
+      <p><%= @likes_count %></p>
 
       <% if @post.user_id == @current_user.id %>
         <div class="posts-menus">
