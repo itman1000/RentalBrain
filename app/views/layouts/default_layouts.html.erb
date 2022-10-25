@@ -8,7 +8,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/be4e22ccae.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -22,13 +22,13 @@
             <%= link_to @current_user.name, user_path(@current_user), data: { turbo: false }, class: "header-link2" %>
           </li>
           <li>
-            <%= link_to '新規投稿', new_post_path, remote: false, class: "header-link2" %>
+            <%= link_to '質問投稿', new_post_path, remote: false, class: "header-link2" %>
           </li>
           <li>
-            <%= link_to '投稿一覧', posts_path, remote: false, class: "header-link2" %>
+            <%= link_to '質問一覧', posts_path, remote: false, class: "header-link2" %>
           </li>
           <li>
-            <%= link_to 'ユーザー一覧', users_path, remote: false, class: "header-link2" %>
+            <%= link_to '回答者一覧', users_path, remote: false, class: "header-link2" %>
           </li>
           <li>
             <%= link_to 'ログアウト', logout_users_path, data: { turbo: false }, class: "header-link2" %>

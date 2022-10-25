@@ -15,10 +15,15 @@
         <div class="email">
           <p><%= @user.email %></p>
         </div>
+        <div class="token">
+          <span class="fa-solid fa-coins"></span>
+          <p>トークン数</p>
+          <p><%= @user.token %></p>
+        </div>
         <div class="users-menus">
           <%= link_to '編集', edit_user_path, data: { turbo: false }, class: 'user-menu' %>
           <div class="user-menu" id="eliminate">
-            削除
+            退会
           </div>
         </div>
       <% end %>
@@ -46,10 +51,10 @@
 <div id="mask" class="hidden2"></div>
 
 <section id="modal" class="hidden2">
-  <p>アカウントを本当に削除してよろしいですか？</p>
+  <p>本当に退会してもよろしいですか？</p>
   <div class="buttons">
     <div id="del" class="link_del">
-      <%= link_to '削除', "/users/#{@user.id}", data: { turbo_method: :delete }, class: 'input2' %>
+      <%= link_to '退会', "/users/#{@user.id}", data: { turbo_method: :delete }, class: 'input2' %>
     </div>
     <div id="cancel" class="input1">
       中止
