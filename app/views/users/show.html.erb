@@ -11,14 +11,19 @@
       <div class="user-name"> 
         <p><%= @user.name %></p>
       </div>
+      <div class="token">
+        <span class="fa-solid fa-coins"></span>
+        <p>トークン数</p>
+        <p><%= @user.token %></p>
+      </div>
+      <div class="evaluation">
+        <span class="fa-solid fa-star"></span>
+        <p>評価</p>
+        <p><%= @user.evaluation %></p>
+      </div>
       <% if @user.id == @current_user.id %>
         <div class="email">
           <p><%= @user.email %></p>
-        </div>
-        <div class="token">
-          <span class="fa-solid fa-coins"></span>
-          <p>トークン数</p>
-          <p><%= @user.token %></p>
         </div>
         <div class="users-menus">
           <%= link_to '編集', edit_user_path, data: { turbo: false }, class: 'user-menu' %>

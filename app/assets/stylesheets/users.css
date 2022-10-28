@@ -142,17 +142,23 @@
   background: rgba(238, 238, 255, .5);
 }
 
+.evaluation,
 .token {
   display: flex;
   align-items: center;
 }
 
+.evaluation p,
 .token p {
   margin-right: .5vw;
 }
 
 .fa-coins {
   color: #bee408;
+}
+
+.fa-star {
+  color: #bee400;
 }
 
 /*** ユーザー登録 ******************************************************/

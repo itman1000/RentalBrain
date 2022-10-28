@@ -220,7 +220,7 @@
   border-radius: .3vw;
   box-shadow: .3vw .3vw .3vw #eee;
   width: 70%;
-  height: 28vw;
+  height: 31vw;
   background: #eee;
   text-align: center;
 }
@@ -257,10 +257,25 @@
   width: 90%;
 }
 
+.number-field-group {
+  width: 100%;
+  margin: 1vw 50.4vw 0 auto;
+  display: flex;
+  justify-content: left;
+  align-items: start;
+  width: 20%;
+}
+
+.number-field-group label {
+  width: 4vw;
+  margin-right: .7vw;
+  margin-top: .5vw;
+}
+
 .text-field-group label,
 .text-area-group label {
   margin-right: .5vw;
-  margin-top: .3vw;
+  margin-top: .5vw;
 }
 
 .text-field {
@@ -283,6 +298,18 @@
   resize: none;
   outline: none;
   line-height: 1.5vw;
+  padding: .5vw;
+  font-size: .9vw;
+  letter-spacing: .05vw;
+  text-align: left;
+}
+
+.number-field {
+  width: 90%;
+  height: 2vw;
+  border: .1vw solid #ccc;
+  background: #fff;
+  outline: none;
   padding: .5vw;
   font-size: .9vw;
   letter-spacing: .05vw;

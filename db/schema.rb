@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_25_083650) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_26_132245) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -66,7 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_083650) do
     t.string "image_name"
     t.string "password_digest"
     t.integer "token"
-    t.integer "evaluation"
+    t.decimal "evaluation", precision: 2, scale: 1
     t.integer "evaluation_count"
   end
 
