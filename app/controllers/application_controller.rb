@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include UsersHelper
+  include PostsHelper
 
   before_action :set_current_user
 

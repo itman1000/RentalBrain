@@ -5,7 +5,11 @@
 <div class="confirm-item">
   <div class="container">
     <div class="posts-title">
+  
       <%= @post.title %>
+    </div>
+    <div class="confirm-reward">
+      <%= "報酬額: #{@post.reward}" %>
     </div>
     <div class="confirm-content">
       <%= safe_join(@post.content.split("\n"),tag(:br)) %>
@@ -13,9 +17,10 @@
 
     <%= form_with model: @post, data: { turbo: false } do |form| %>
       <%= form.hidden_field :title %>
+      <%= form.hidden_field :reward %>
       <%= form.hidden_field :content %>
-      <%= form.submit "投稿", class: "input1" %>
-      <%= form.submit "修正", name: "back", class: "input1" %>
+      <%= form.submit "投稿", class: "button1" %>
+      <%= form.submit "修正", name: "back", class: "button1" %>
     <% end %>
   </div>
 </div>

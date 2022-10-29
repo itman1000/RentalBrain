@@ -61,6 +61,12 @@
   z-index: 1;
 }
 
+.posts-index-reward {
+  position: absolute;
+  top: 1vw;
+  right: 1vw;
+}
+
 .index-item:hover {
   background: rgba(238, 238, 255, .5);
 }
@@ -73,6 +79,7 @@
 }
 
 .posts-show-item {
+  position: relative;
   color: #333;
   border: .1vw solid #ddd;
   box-shadow: .3vw .3vw .3vw #eee;
@@ -80,7 +87,6 @@
   padding: 2vw;
   font-size: .9vw;
   letter-spacing: .05vw;
-
   border-radius: .3vw;
 }
 
@@ -124,6 +130,13 @@
   margin-bottom: 2vw;
   padding-bottom: .3vw;
   border-bottom: .3vw solid #ccc;
+}
+
+.show-reward {
+  position: absolute;
+  top: 11vw;
+  right: 3vw;
+  font-size: .9vw;
 }
 
 .posts-time {
@@ -240,9 +253,10 @@
 
 .text-field-group {
   width: 100%;
-  margin: 3vw 4vw 0 auto;
+  margin: 3vw auto 0 5.5vw;
   display: flex;
-  justify-content: right;
+  flex: none;
+  justify-content: left;
   align-items: start;
   width: 90%;
 }
@@ -250,25 +264,23 @@
 .text-area-group {
   width: 100%;
   height: 50%;
-  margin: 1vw 4vw 1.5vw auto;
+  margin: 1vw auto 1.5vw 5.5vw;
   display: flex;
-  justify-content: right;
+  justify-content: left;
   align-items: start;
   width: 90%;
 }
 
 .number-field-group {
   width: 100%;
-  margin: 1vw 50.4vw 0 auto;
+  margin: 1vw auto 0 5.5vw;
   display: flex;
   justify-content: left;
   align-items: start;
-  width: 20%;
 }
 
 .number-field-group label {
-  width: 4vw;
-  margin-right: .7vw;
+  margin-right: .5vw;
   margin-top: .5vw;
 }
 
@@ -286,7 +298,6 @@
   outline: none;
   padding: .5vw;
   font-size: .9vw;
-  letter-spacing: .05vw;
   text-align: left;
 }
 
@@ -300,23 +311,21 @@
   line-height: 1.5vw;
   padding: .5vw;
   font-size: .9vw;
-  letter-spacing: .05vw;
   text-align: left;
 }
 
 .number-field {
-  width: 90%;
+  width: 20%;
   height: 2vw;
   border: .1vw solid #ccc;
   background: #fff;
   outline: none;
   padding: .5vw;
   font-size: .9vw;
-  letter-spacing: .05vw;
   text-align: left;
 }
 
-.input1 {
+.button1 {
   color: #fff;
   font-size: 1.2vw;
   padding: .5vw 3vw;
@@ -325,11 +334,11 @@
   box-shadow: .1vw .1vw .1vw #aaa;
 }
 
-.input1:hover {
+.button1:hover {
   background: linear-gradient(#ccf, #99f);
 }
 
-.input1:active {
+.button1:active {
   transform: translate(.1vw, .1vw);
   box-shadow: none;
 }
@@ -345,7 +354,7 @@
   margin: 0;
 }
 
-.input2 {
+.button2 {
   display: block;
   color: #fff;
   font-size: 1.2vw;
@@ -356,17 +365,36 @@
   box-shadow: .1vw .1vw .1vw #aaa;
 }
 
-.input2:hover {
+.button2:hover {
   background: linear-gradient(#faa, #f77);
 }
 
-.input2:active {
+.button2:active {
   transform: translate(.1vw, .1vw);
   box-shadow: none;
 }
 
+.posts-index-commit {
+  position: absolute;
+  width: 8vw;
+  height: 2vw;
+  top: 3vw;
+  right: 1vw;
+  color: #fff;
+  font-size: 1.2vw;
+  margin-bottom: .5vw;
+  background: linear-gradient(#aaf, #77f);
+  box-shadow: inset .1vw .1vw .1vw #aaa;
+}
+
+.posts-index-commit p {
+  color: #fff;
+  text-align: center;
+}
+
 /*** 投稿内容確認 ******************************************************/
 .confirm-item .container {
+  position: relative;
   width: 70%;
   height: 100%;
   padding: 2vw;
@@ -382,6 +410,13 @@
   text-align: left;
 }
 
+.confirm-reward {
+  position: absolute;
+  top: 2.4vw;
+  right: 3vw;
+  font-size: .9vw;
+}
+
 .confirm-item .confirm-content {
   text-align: left;
   margin: 0 0 3vw;
@@ -391,6 +426,6 @@
   letter-spacing: .05vw;
 }
 
-.confirm-item .input1 {
+.confirm-item .button1 {
   margin: 0 .5vw;
 }

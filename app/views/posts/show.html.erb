@@ -1,5 +1,5 @@
 <div class="page-title">
-  <h3>投稿詳細</h3>
+  <h3>質問詳細</h3>
 </div>
 
 <div class="main posts-show">
@@ -11,6 +11,9 @@
       <div class="posts-user-name"> 
         <%= @user.name %>
       </div>
+      <div class="show-reward">
+        <%= "報酬額: #{@post.reward}" %>
+      </div>
       <div class="posts-title">
         <%= @post.title %>
       </div>
@@ -18,7 +21,7 @@
         <%= safe_join(@post.content.split("\n"),tag(:br)) %>
       </div>
       <div class="posts-time">
-        <%= @post.updated_at %>
+        <%= @post.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
       </div>
 
       <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
@@ -54,9 +57,9 @@
   <p>本当に削除してよろしいですか？</p>
   <div class="buttons">
     <div id="del" class="link_del">
-      <%= link_to '削除', "/posts/#{@post.id}", data: { turbo_method: :delete }, class: 'input2' %>
+      <%= link_to '削除', "/posts/#{@post.id}", data: { turbo_method: :delete }, class: 'button2' %>
     </div>
-    <div id="cancel" class="input1">
+    <div id="cancel" class="button1">
       中止
     </div>
   </div>

@@ -13,7 +13,7 @@ module UsersHelper
     redirect_to '/' if !logged_in?
   end
 
-  def error_message_change(email_input_flg, password_input_flg, message)
+  def user_error_message_change(email_input_flg, password_input_flg, message)
     if message == 'Emailは不正な値です' && email_input_flg
       return nil
     end

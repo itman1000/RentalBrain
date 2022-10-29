@@ -9,17 +9,24 @@
         <%= form.label :title, "タイトル" %>
         <%= form.text_field :title, class: "text-field" %>
       </div>
+      <div class="number-field-group">
+        <%= form.label :reward, "　報酬額" %>
+        <%= form.number_field :reward, min: 1000, max: 50000, step: 1000, class: "number-field" %>
+      </div>
       <div class="text-area-group">
         <%= form.label :content, "依頼内容" %>
         <%= form.text_area :content, class: "text-area" %>
       </div>
       <div>
-        <%= form.submit "投稿", class: "input1" %>
+        <%= form.submit "投稿", class: "button1" %>
       </div>
       
       <% @post.errors.full_messages.each do |message| %>
         <div class="form-error">
-          <%= message %>
+          <% message = post_error_message_change(message) %>
+          <% if message %>
+            <%= "#{message}。" %>
+          <% end %>
         </div>
       <% end %>
     </div>
