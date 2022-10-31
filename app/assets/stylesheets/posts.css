@@ -63,7 +63,7 @@
 
 .posts-index-reward {
   position: absolute;
-  top: 1vw;
+  top: 1.5vw;
   right: 1vw;
 }
 
@@ -71,6 +71,25 @@
   background: rgba(238, 238, 255, .5);
 }
 
+.posts-index-commit {
+  position: absolute;
+  width: 8vw;
+  height: 2vw;
+  top: 3.5vw;
+  right: 1vw;
+  color: #fff;
+  font-size: 1.2vw;
+  margin-bottom: .5vw;
+  border-radius: .2vw;
+  background: linear-gradient(#faa, #f33);
+}
+
+.posts-index-commit p {
+  color: #fff;
+  text-align: center;
+  line-height: 1.9vw;
+  vertical-align: middle;
+}
 
 /*** 投稿詳細 ******************************************************/
 .posts-show {
@@ -86,7 +105,6 @@
   line-height: 1.5vw;
   padding: 2vw;
   font-size: .9vw;
-  letter-spacing: .05vw;
   border-radius: .3vw;
 }
 
@@ -146,18 +164,16 @@
 
 .posts-menus {
   width: 100%;
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .edit-menu {
-  display: inline;
   margin-right: .5vw;
-  cursor: pointer;
 }
 
-.edit-menu:hover {
-  color: #55f;
-  border-bottom: .1vw solid #55f;
+.index-item {
+  margin-right: .5vw;
 }
 
 #mask {
@@ -181,22 +197,23 @@
   background: #fff;
   padding: 2vw;
   font-size: .9vw;
-  letter-spacing: .05vw;
 }
 
-#modal p {
-  margin-bottom: 2vw;
+#modal .buttons {
+  display: flex;
+  justify-content: center;
 }
 
-#modal div {
-  display: inline-block;
-  text-align: center;
-  margin-left: 1vw;
+#modal > p {
+  margin-bottom: 1.5vw;
 }
 
 #modal .buttons {
   cursor: pointer;
-  margin-left: 2.8vw;
+}
+
+#del {
+  margin-right: .5vw;
 }
 
 #mask.hidden2,
@@ -326,10 +343,14 @@
 }
 
 .button1 {
+  display: inline-block;
+  width: 8vw;
+  height: 2.4vw;
   color: #fff;
+  text-decoration: none;
+  line-height: 2.4vw;
+  text-align: center;
   font-size: 1.2vw;
-  padding: .5vw 3vw;
-  margin-bottom: .5vw;
   background: linear-gradient(#aaf, #77f);
   box-shadow: .1vw .1vw .1vw #aaa;
 }
@@ -345,22 +366,19 @@
 
 #modal .buttons {
   height: auto;
-}
-
-#modal .link_del {
-  display: inline-block;
-  height: 100%;
-  padding: 0;
-  margin: 0;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .button2 {
-  display: block;
+  display: inline-block;
+  width: 8vw;
+  height: 2.4vw;
   color: #fff;
+  text-decoration: none;
+  text-align: center;
+  line-height: 2.4vw;
   font-size: 1.2vw;
-  height: 100%;
-  padding: .14vw 3vw;
-  margin-left: 1vw;
   background: linear-gradient(#f88, #f55);
   box-shadow: .1vw .1vw .1vw #aaa;
 }
@@ -374,26 +392,30 @@
   box-shadow: none;
 }
 
-.posts-index-commit {
-  position: absolute;
+.button3 {
+  display: inline-block;
   width: 8vw;
-  height: 2vw;
-  top: 3vw;
-  right: 1vw;
+  height: 2.4vw;
   color: #fff;
+  text-decoration: none;
+  text-align: center;
+  line-height: 2.4vw;
   font-size: 1.2vw;
-  margin-bottom: .5vw;
-  background: linear-gradient(#aaf, #77f);
-  box-shadow: inset .1vw .1vw .1vw #aaa;
+  background: linear-gradient(#6f6, #3d3);
+  box-shadow: .1vw .1vw .1vw #aaa;
 }
 
-.posts-index-commit p {
-  color: #fff;
-  text-align: center;
+.button3:hover {
+  background: linear-gradient(#8f8, #6f6);
+}
+
+.button3:active {
+  transform: translate(.1vw, .1vw);
+  box-shadow: none;
 }
 
 /*** 投稿内容確認 ******************************************************/
-.confirm-item .container {
+.confirm-item > .container {
   position: relative;
   width: 70%;
   height: 100%;
@@ -423,9 +445,8 @@
   line-height: 1.5vw;
   padding: .5vw;
   font-size: .9vw;
-  letter-spacing: .05vw;
 }
 
 .confirm-item .button1 {
-  margin: 0 .5vw;
+  margin-right: .5vw;
 }

@@ -22,13 +22,13 @@
             <%= link_to "#{@current_user.name}さん", user_path(@current_user), data: { turbo: false }, class: "header-link2" %>
           </li>
           <li>
-            <%= link_to '質問投稿', new_post_path, remote: false, class: "header-link2" %>
+            <%= link_to '質問投稿', new_post_path, data: { turbo: false }, class: "header-link2" %>
           </li>
           <li>
-            <%= link_to '質問一覧', posts_path, remote: false, class: "header-link2" %>
+            <%= link_to '質問一覧', posts_path, data: { turbo: false }, class: "header-link2" %>
           </li>
           <li>
-            <%= link_to '回答者一覧', users_path, remote: false, class: "header-link2" %>
+            <%= link_to '回答者一覧', users_path, data: { turbo: false }, class: "header-link2" %>
           </li>
           <li>
             <%= link_to 'ログアウト', logout_users_path, data: { turbo: false }, class: "header-link2" %>

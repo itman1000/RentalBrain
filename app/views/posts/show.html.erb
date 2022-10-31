@@ -34,12 +34,17 @@
         <% end %>
       <% end %>
       <p><%= @likes_count %></p>
-
+    
       <% if @post.user_id == @current_user.id %>
         <div class="posts-menus">
-          <%= link_to '編集', "/posts/#{@post.id}/edit", class: 'edit-menu' %>
-          <div class="edit-menu" id="eliminate">
-            削除
+          <div class="edit-menu" id='commit_button' >
+            <%= link_to 'コミット', "#", class: 'button3' %>
+          </div>
+          <div class="edit-menu">
+            <%= link_to '編集', "/posts/#{@post.id}/edit", data: { turbo: false }, class: 'button1' %>
+          </div>
+          <div class="edit-menu" id='eliminate' >
+            <%= link_to '削除', "#", class: 'button2' %>
           </div>
         </div>
       <% end %>
@@ -56,11 +61,11 @@
 <section id="modal" class="hidden2">
   <p>本当に削除してよろしいですか？</p>
   <div class="buttons">
-    <div id="del" class="link_del">
+    <div id="del">
       <%= link_to '削除', "/posts/#{@post.id}", data: { turbo_method: :delete }, class: 'button2' %>
     </div>
-    <div id="cancel" class="button1">
-      中止
+    <div id="cancel">
+      <p class="button1">中止</p>
     </div>
   </div>
 </section>
