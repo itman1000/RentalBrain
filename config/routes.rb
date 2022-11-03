@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     end
     member do
       patch 'edit_confirm'
+      post 'commit'
     end
   end
 

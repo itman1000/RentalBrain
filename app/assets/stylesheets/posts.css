@@ -243,6 +243,83 @@
   vertical-align: top;
 }
 
+#modal .buttons {
+  height: auto;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.button1 {
+  display: inline-block;
+  width: 8vw;
+  height: 2.4vw;
+  color: #fff;
+  text-decoration: none;
+  line-height: 2.4vw;
+  text-align: center;
+  font-size: 1.2vw;
+  background: linear-gradient(#aaf, #77f);
+  box-shadow: .1vw .1vw .1vw #aaa;
+}
+
+.button1:hover {
+  /* background: linear-gradient(#ccf, #99f); */
+  filter: brightness(1.2);
+}
+
+.button1:active {
+  transform: translate(.1vw, .1vw);
+  box-shadow: none;
+}
+
+.button2 {
+  display: inline-block;
+  width: 8vw;
+  height: 2.4vw;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  line-height: 2.4vw;
+  font-size: 1.2vw;
+  background: linear-gradient(#f88, #f55);
+  box-shadow: .1vw .1vw .1vw #aaa;
+}
+
+.button2:hover {
+  filter: brightness(1.3);
+}
+
+.button2:active {
+  transform: translate(.1vw, .1vw);
+  box-shadow: none;
+}
+
+.button3 {
+  display: inline-block;
+  width: 8vw;
+  height: 2.4vw;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  line-height: 2.4vw;
+  font-size: 1.2vw;
+  background: linear-gradient(#6b6, #3a3);
+  box-shadow: .1vw .1vw .1vw #aaa;
+}
+
+.button3:hover {
+  filter: brightness(1.1);
+}
+
+.button3:active {
+  transform: translate(.1vw, .1vw);
+  box-shadow: none;
+}
+
+.lighten {
+  background: linear-gradient(#6e6, #3d3);;
+}
+
 /*** 新規投稿 ******************************************************/
 .posts-new {
   position: relative;
@@ -340,78 +417,6 @@
   padding: .5vw;
   font-size: .9vw;
   text-align: left;
-}
-
-.button1 {
-  display: inline-block;
-  width: 8vw;
-  height: 2.4vw;
-  color: #fff;
-  text-decoration: none;
-  line-height: 2.4vw;
-  text-align: center;
-  font-size: 1.2vw;
-  background: linear-gradient(#aaf, #77f);
-  box-shadow: .1vw .1vw .1vw #aaa;
-}
-
-.button1:hover {
-  background: linear-gradient(#ccf, #99f);
-}
-
-.button1:active {
-  transform: translate(.1vw, .1vw);
-  box-shadow: none;
-}
-
-#modal .buttons {
-  height: auto;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.button2 {
-  display: inline-block;
-  width: 8vw;
-  height: 2.4vw;
-  color: #fff;
-  text-decoration: none;
-  text-align: center;
-  line-height: 2.4vw;
-  font-size: 1.2vw;
-  background: linear-gradient(#f88, #f55);
-  box-shadow: .1vw .1vw .1vw #aaa;
-}
-
-.button2:hover {
-  background: linear-gradient(#faa, #f77);
-}
-
-.button2:active {
-  transform: translate(.1vw, .1vw);
-  box-shadow: none;
-}
-
-.button3 {
-  display: inline-block;
-  width: 8vw;
-  height: 2.4vw;
-  color: #fff;
-  text-decoration: none;
-  text-align: center;
-  line-height: 2.4vw;
-  font-size: 1.2vw;
-  background: linear-gradient(#6f6, #3d3);
-  box-shadow: .1vw .1vw .1vw #aaa;
-}
-
-.button3:hover {
-  background: linear-gradient(#8f8, #6f6);
-}
-
-.button3:active {
-  transform: translate(.1vw, .1vw);
-  box-shadow: none;
 }
 
 /*** 投稿内容確認 ******************************************************/

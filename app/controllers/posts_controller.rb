@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   layout 'default_layouts'
-  before_action :require_login, only: [:confirm, :edit, :index, :new, :show]
+  before_action :require_login, only: [:confirm, :edit, :index, :new, :show, :commit]
   before_action :ensure_correct_post_user, only: [:edit, :update, :destroy]
 
   def index
@@ -61,6 +61,16 @@ class PostsController < ApplicationController
     redirect_to Post, status: :see_other
   end
 
+  def commit
+    @post = Post.find(params[:id])
+    if !@post.commit
+      @post.commit = @current_user.id
+    else
+      @post.commit = nil
+    end
+    @post.update(commit: @post.commit)
+    render :commit
+  end
 
   def ensure_correct_post_user
     @post = Post.find_by(id: params[:id])

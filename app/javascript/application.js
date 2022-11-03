@@ -2,9 +2,8 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
+import "./custom/commit_button.js"
 import "./custom/modal.js"
 
 import "./custom/carousel.js"
 import "./custom/top.js"
-
-

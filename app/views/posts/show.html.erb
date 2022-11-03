@@ -35,23 +35,23 @@
       <% end %>
       <p><%= @likes_count %></p>
     
-      <% if @post.user_id == @current_user.id %>
-        <div class="posts-menus">
-          <div class="edit-menu" id='commit_button' >
-            <%= link_to 'コミット', "#", class: 'button3' %>
-          </div>
+      <div class="posts-menus">
+        <% if @post.user_id == @current_user.id %>
           <div class="edit-menu">
             <%= link_to '編集', "/posts/#{@post.id}/edit", data: { turbo: false }, class: 'button1' %>
           </div>
           <div class="edit-menu" id='eliminate' >
             <%= link_to '削除', "#", class: 'button2' %>
           </div>
-        </div>
-      <% end %>
+        <% else %>
+          <p><%= @post.commit %></p>
+          <%= button_to 'コミット', commit_post_path(@post), id: 'commit_button', class: 'button3 lighten' %>
+        <% end %>
+      </div>
     </div>
 
     <div class="turn-back">
-    <%= link_to '戻る', posts_path, data: { turbo: false }, class: 'return' %>
+    <%= link_to '戻る', posts_path, class: 'return' %>
     </div>
   </div>
 </div>
