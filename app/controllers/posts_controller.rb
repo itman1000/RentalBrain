@@ -68,8 +68,7 @@ class PostsController < ApplicationController
     else
       @post.commit = nil
     end
-    @post.update(commit: @post.commit)
-    render :commit
+    @post.save
   end
 
   def ensure_correct_post_user

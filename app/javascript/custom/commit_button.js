@@ -10,9 +10,9 @@
         commit_button.classList.remove('lighten');
         console.log('hey1');
       } else {
+        console.log('hey2');
         commit_button.textContent = 'コミット';
         commit_button.classList.add('lighten');
-        console.log('hey2');
       }
     });
   });
