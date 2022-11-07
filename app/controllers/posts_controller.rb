@@ -25,14 +25,32 @@ class PostsController < ApplicationController
     @post.user_id = @current_user.id
     render :new if @post.invalid?
   end
+  
+  def answer
+    @post = Post.new(user_id: @current_user.id)
+  end
+
+  def answer_confirm
+    @post = Post.new(post_params)
+    @post.user_id = @current_user.id
+    render :answer if @post.invalid?
+  end
 
   def create
     @post = Post.new(post_params)
     @post.user_id = @current_user.id
-    if params[:back] || !@post.save
-      render :new
+    if !@post.attr
+      if params[:back] || !@post.save
+        render :new
+      else
+        redirect_to action: :index
+      end
     else
-      redirect_to action: :index
+      if params[:back] || !@post.save
+        render :answer
+      else
+        redirect_to post_path(id: @post.commit)
+      end
     end
   end
 
@@ -80,7 +98,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :content, :user_id, :reward)
+    params.require(:post).permit(:title, :content, :user_id, :reward, :attr)
   end
 
 end

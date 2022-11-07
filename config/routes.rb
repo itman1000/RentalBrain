@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     member do
       patch 'edit_confirm'
       post 'commit'
+      get 'answer'
+      post 'answer_confirm'
     end
   end
 

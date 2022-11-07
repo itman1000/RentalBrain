@@ -1,0 +1,30 @@
+<div class="page-title">
+  <h3>回答投稿</h3>
+</div>
+
+<%= form_with model: @post, url: answer_confirm_posts_path(@post), data: { turbo: false } do |form| %>
+  <div class="main answer-new">
+    <div class="container">
+      <%= form.hidden_field :attr, value: true %>
+      <%= form.hidden_field :title, value: 1 %>
+      <%= form.hidden_field :reward, value: 1 %>
+      <div class="text-area-group2">
+        <%= form.label :content, "回答" %>
+        <%= form.text_area :content, class: "text-area2" %>
+      </div>
+      <div>
+        <%= form.submit "投稿", class: "button1" %>
+      </div>
+      
+      <% @post.errors.full_messages.each do |message| %>
+        <div class="form-error2">
+          <%= message %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<div class="turn-back">
+  <%= link_to '戻る', "/posts/#{@post.id}", data: { turbo: false }, class: 'return' %>
+</div>
