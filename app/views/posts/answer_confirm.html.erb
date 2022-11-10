@@ -5,14 +5,12 @@
 <div class="confirm-item">
   <div class="container">
     <div class="confirm-content">
-      <%= safe_join(@post.content.split("\n"),tag(:br)) %>
+      <%= safe_join(@answer.content.split("\n"),tag(:br)) %>
     </div>
 
-    <%= form_with model: @post, data: { turbo: false } do |form| %>
+    <%= form_with model: @answer, url: answer_create_post_path(@answer), data: { turbo: false } do |form| %>
       <%= form.hidden_field :content %>
-      <%= form.hidden_field :attr, value: true %>
-      <%= form.hidden_field :title, value: 1 %>
-      <%= form.hidden_field :reward, value: 1 %>
+      <%= form.hidden_field :post_id %>
       <%= form.submit "投稿", class: "button1" %>
       <%= form.submit "修正", name: "back", class: "button1" %>
     <% end %>

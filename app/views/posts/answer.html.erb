@@ -2,12 +2,11 @@
   <h3>回答投稿</h3>
 </div>
 
-<%= form_with model: @post, url: answer_confirm_posts_path(@post), data: { turbo: false } do |form| %>
+<%= form_with model: @answer, url: answer_confirm_post_path(@answer), data: { turbo: false } do |form| %>
   <div class="main answer-new">
     <div class="container">
-      <%= form.hidden_field :attr, value: true %>
-      <%= form.hidden_field :title, value: 1 %>
-      <%= form.hidden_field :reward, value: 1 %>
+      <%= form.hidden_field :post_id, @post_id %>
+      <%= form.hidden_field :user_id, @post_id.user_id %>
       <div class="text-area-group2">
         <%= form.label :content, "回答" %>
         <%= form.text_area :content, class: "text-area2" %>
@@ -16,7 +15,11 @@
         <%= form.submit "投稿", class: "button1" %>
       </div>
       
-      <% @post.errors.full_messages.each do |message| %>
+      <%= params[:id] %>
+      <%= @post.id %>
+      <%= @answer.id %>
+
+      <% @answer.errors.full_messages.each do |message| %>
         <div class="form-error2">
           <%= message %>
         </div>
@@ -26,5 +29,5 @@
 <% end %>
 
 <div class="turn-back">
-  <%= link_to '戻る', "/posts/#{@post.id}", data: { turbo: false }, class: 'return' %>
+  <%= link_to '戻る', "/posts/#{@answer.post_id}", data: { turbo: false }, class: 'return' %>
 </div>

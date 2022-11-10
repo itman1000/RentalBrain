@@ -14,10 +14,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new(
-      content: params[:content],
-      user_id: @current_user.id
-    )
+    @post = Post.new(user_id: @current_user.id)
   end
 
   def confirm
@@ -27,30 +24,33 @@ class PostsController < ApplicationController
   end
   
   def answer
-    @post = Post.new(user_id: @current_user.id)
+    @post = Post.find(params[:id])
+    @answer = @post.create_answer
   end
 
   def answer_confirm
-    @post = Post.new(post_params)
-    @post.user_id = @current_user.id
-    render :answer if @post.invalid?
+    @answer = @post.create_answer(answer_params)
+    @answer.user_id = @current_user.id
+    render :answer if @answer.invalid?
   end
 
   def create
     @post = Post.new(post_params)
     @post.user_id = @current_user.id
-    if !@post.attr
-      if params[:back] || !@post.save
-        render :new
-      else
-        redirect_to action: :index
-      end
+    if params[:back] || !@post.save
+      render :new
     else
-      if params[:back] || !@post.save
-        render :answer
-      else
-        redirect_to post_path(id: @post.commit)
-      end
+      redirect_to action: :index
+    end
+  end
+
+  def answer_create
+    @answer = Answer.new(answer_params)
+    @answer.user_id = @current_user.id
+    if params[:back] || !@answer.save
+      render :answer
+    else
+      redirect_to post_path(@answer.post_id)
     end
   end
 
@@ -98,7 +98,11 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :content, :user_id, :reward, :attr)
+    params.require(:post).permit(:title, :content, :user_id, :reward)
+  end
+
+  def answer_params
+    params.require(:answer).permit(:content, post_id)
   end
 
 end

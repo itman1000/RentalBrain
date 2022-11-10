@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       post 'commit'
       get 'answer'
       post 'answer_confirm'
+      post 'answer_create'
     end
   end
 

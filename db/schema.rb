@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_08_061821) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_10_135027) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_08_061821) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "post_id"
+    t.integer "user_id"
     t.index ["post_id"], name: "index_answers_on_post_id"
   end
 
@@ -52,6 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_08_061821) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "post_id"
+    t.integer "user_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
@@ -78,7 +80,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_08_061821) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_name"
     t.string "password_digest"
     t.integer "token"
     t.decimal "evaluation", precision: 2, scale: 1
