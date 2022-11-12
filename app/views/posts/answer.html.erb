@@ -2,11 +2,11 @@
   <h3>回答投稿</h3>
 </div>
 
-<%= form_with model: @answer, url: answer_confirm_post_path(@answer), data: { turbo: false } do |form| %>
+<%= form_with model: @answer, url: answer_confirm_post_path(@post), data: { turbo: false }  do |form| %>
   <div class="main answer-new">
     <div class="container">
-      <%= form.hidden_field :post_id, @post_id %>
-      <%= form.hidden_field :user_id, @post_id.user_id %>
+      <%= form.hidden_field :post_id, value: @post.id %>
+      <%= form.hidden_field :user_id, value: @post.user_id %>
       <div class="text-area-group2">
         <%= form.label :content, "回答" %>
         <%= form.text_area :content, class: "text-area2" %>

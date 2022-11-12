@@ -29,8 +29,8 @@ class PostsController < ApplicationController
   end
 
   def answer_confirm
+    @post = Post.find(params[:id])
     @answer = @post.create_answer(answer_params)
-    @answer.user_id = @current_user.id
     render :answer if @answer.invalid?
   end
 
@@ -45,12 +45,12 @@ class PostsController < ApplicationController
   end
 
   def answer_create
-    @answer = Answer.new(answer_params)
-    @answer.user_id = @current_user.id
+    @post = Post.find(params[:id])
+    @answer = @post.create_answer(answer_params)
     if params[:back] || !@answer.save
       render :answer
     else
-      redirect_to post_path(@answer.post_id)
+      redirect_to post_path(@post)
     end
   end
 
@@ -102,7 +102,7 @@ class PostsController < ApplicationController
   end
 
   def answer_params
-    params.require(:answer).permit(:content, post_id)
+    params.require(:answer).permit(:content, :post_id, :user_id)
   end
 
 end

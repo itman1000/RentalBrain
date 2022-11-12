@@ -8,8 +8,8 @@ Rails.application.routes.draw do
       patch 'edit_confirm'
       post 'commit'
       get 'answer'
-      post 'answer_confirm'
-      post 'answer_create'
+      patch 'answer_confirm'
+      patch 'answer_create'
     end
   end
 
