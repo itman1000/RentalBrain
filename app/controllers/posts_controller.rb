@@ -10,6 +10,12 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = @post.user
+    if @post.answer
+      @answer_user = User.find(@post.answer.user_id)
+    else
+      @answer_user = nil
+    end
+
     @likes_count = Like.where(post_id: @post.id).count
   end
 
@@ -25,12 +31,12 @@ class PostsController < ApplicationController
   
   def answer
     @post = Post.find(params[:id])
-    @answer = @post.create_answer
+    @answer = @post.build_answer
   end
 
   def answer_confirm
     @post = Post.find(params[:id])
-    @answer = @post.create_answer(answer_params)
+    @answer = @post.build_answer(answer_params)
     render :answer if @answer.invalid?
   end
 
@@ -46,7 +52,7 @@ class PostsController < ApplicationController
 
   def answer_create
     @post = Post.find(params[:id])
-    @answer = @post.create_answer(answer_params)
+    @answer = @post.build_answer(answer_params)
     if params[:back] || !@answer.save
       render :answer
     else
@@ -77,6 +83,12 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to Post, status: :see_other
+  end
+
+  def answer_delete
+    @post = Post.find(params[:id])
+    @post.answer.destroy
+    redirect_to post_path(@post)
   end
 
   def commit

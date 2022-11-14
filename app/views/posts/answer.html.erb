@@ -6,7 +6,7 @@
   <div class="main answer-new">
     <div class="container">
       <%= form.hidden_field :post_id, value: @post.id %>
-      <%= form.hidden_field :user_id, value: @post.user_id %>
+      <%= form.hidden_field :user_id, value: @current_user.id %>
       <div class="text-area-group2">
         <%= form.label :content, "回答" %>
         <%= form.text_area :content, class: "text-area2" %>
@@ -15,10 +15,6 @@
         <%= form.submit "投稿", class: "button1" %>
       </div>
       
-      <%= params[:id] %>
-      <%= @post.id %>
-      <%= @answer.id %>
-
       <% @answer.errors.full_messages.each do |message| %>
         <div class="form-error2">
           <%= message %>

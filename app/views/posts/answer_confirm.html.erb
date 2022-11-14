@@ -7,11 +7,7 @@
     <div class="confirm-content">
       <%= safe_join(@answer.content.split("\n"),tag(:br)) %>
     </div>
-
-    <%= params[:id] %>
-    <%= @post.id %>
-    <%= @answer.id %>
-
+    
     <%= form_with model: @answer, url: answer_create_post_path(@post), data: { turbo: false } do |form| %>
       <%= form.hidden_field :content %>
       <%= form.hidden_field :post_id %>

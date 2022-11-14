@@ -8,8 +8,9 @@ Rails.application.routes.draw do
       patch 'edit_confirm'
       post 'commit'
       get 'answer'
-      patch 'answer_confirm'
-      patch 'answer_create'
+      post 'answer_confirm'
+      post 'answer_create'
+      delete 'answer_delete'
     end
   end
 
@@ -29,7 +30,6 @@ Rails.application.routes.draw do
   post 'likes/:post_id/destroy', to: 'likes#destroy'
 
   resources :posts, :users
-
 
   get '/', to: 'home#top'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

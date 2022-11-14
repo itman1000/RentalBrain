@@ -108,6 +108,19 @@
   border-radius: .3vw;
 }
 
+.answer-show-item {
+  position: relative;
+  color: #333;
+  border: .1vw solid #ddd;
+  box-shadow: .3vw .3vw .3vw #eee;
+  background-color: #fee;
+  line-height: 1.5vw;
+  margin-top: 3vw;
+  padding: 2vw;
+  font-size: .9vw;
+  border-radius: .3vw;
+}
+
 .posts-user-image {
   display: inline-block;
   width: 6vw;
@@ -229,15 +242,18 @@
   color: #ff2581;
 }
 
+.answer-show-item .button_to,
 .posts-show-item .button_to {
   display: inline;
 }
 
+.answer-show-item .fa,
 .posts-show-item .fa {
   font-size: 1.2vw;
   margin-top: .5vw;
 }
 
+.answer-show-item p,
 .posts-show-item p {
   display: inline;
   vertical-align: top;

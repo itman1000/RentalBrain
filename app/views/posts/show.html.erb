@@ -24,17 +24,6 @@
         <%= @post.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
       </div>
 
-      <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
-        <%= button_to "/likes/#{@post.id}/destroy", data: { turbo_method: :delete } do %>
-          <span class="fa fa-heart liked-btn"></span>
-        <% end %>
-      <% else %>
-        <%= button_to "/likes/#{@post.id}/create", data: { turbo_method: :post } do %>
-          <span class="fa fa-heart unliked-btn"></span>
-        <% end %>
-      <% end %>
-      <p><%= @likes_count %></p>
-    
       <div class="posts-menus">
         <% if @post.user_id == @current_user.id %>
           <div class="edit-menu">
@@ -46,25 +35,68 @@
         <% else %>
           <% if @post.commit %>
             <div class="edit-menu">
-              <%= button_to 'コミット解除', commit_post_path(@post), id: 'commit_button', class: 'button3' %>
+              <%= button_to 'コミット解除', commit_post_path(@post), data: { turbo: false }, id: 'commit_button', class: 'button3' %>
             </div>
             <div class="edit-menu">
               <%= link_to '回答', answer_post_path(@post), id: 'answer_button', class: 'button1' %>
             </div>
           <% else %>
             <div class="edit-menu">
-              <%= button_to 'コミット', commit_post_path(@post), id: 'commit_button', class: 'button3 lighten' %>
+              <%= button_to 'コミット', commit_post_path(@post), data: { turbo: false }, id: 'commit_button', class: 'button3 lighten' %>
             </div>
             <div class="edit-menu">
-              <%= link_to '回答', "#", id: 'answer_button', class: 'button4' %>
+              <%= link_to '回答', '#', id: 'answer_button', class: 'button4' %>
             </div>
           <% end %>
         <% end %>
       </div>
     </div>
 
+    <% if @post.answer %>
+      <div class="answer-show-item">
+        <div class="posts-user-image">
+          <%= image_tag  @answer_user.avatar %>
+        </div>
+        <div class="posts-user-name"> 
+          <%=  @answer_user.name %>
+        </div>
+        <div class="posts-title">
+          <p><%= '回答' %></p>
+        </div>
+        <div class="posts-content">
+          <%= safe_join(@post.answer.content.split("\n"),tag(:br)) %>
+        </div>
+
+        <div class="posts-time">
+          <%= @post.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
+        </div>
+
+        <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+          <%= button_to "/likes/#{@post.id}/destroy", data: { turbo: false } do %>
+            <span class="fa fa-heart liked-btn"></span>
+          <% end %>
+        <% else %>
+          <%= button_to "/likes/#{@post.id}/create", data: { turbo: false } do %>
+            <span class="fa fa-heart unliked-btn"></span>
+          <% end %>
+        <% end %>
+        <p><%= @likes_count %></p>
+
+        <div class="posts-menus">
+          <% if @post.answer.user_id == @current_user.id %>
+            <div class="edit-menu">
+              <%= link_to '編集', "/posts/#{@post.id}/edit", data: { turbo: false }, class: 'button1' %>
+            </div>
+            <div class="edit-menu" id='eliminate' >
+              <%= link_to '削除', "#", class: 'button2' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
     <div class="turn-back">
-    <%= link_to '戻る', posts_path, class: 'return' %>
+      <%= link_to '戻る', posts_path, data: { turbo: false }, class: 'return' %>
     </div>
   </div>
 </div>
@@ -75,7 +107,13 @@
   <p>本当に削除してよろしいですか？</p>
   <div class="buttons">
     <div id="del">
-      <%= link_to '削除', "/posts/#{@post.id}", data: { turbo_method: :delete }, class: 'button2' %>
+      <% if @post.user_id == @current_user.id %>
+        <%= link_to '削除', post_path(@post), data: { turbo_method: :delete }, class: 'button2' %>
+      <% elsif @post.answer %>
+        <% if @post.answer.user_id == @current_user.id %>
+          <%= link_to '削除', answer_delete_post_path(@post), data: { turbo_method: :delete }, class: 'button2' %>
+        <% end %>
+      <% end %>
     </div>
     <div id="cancel">
       <p class="button1">中止</p>
