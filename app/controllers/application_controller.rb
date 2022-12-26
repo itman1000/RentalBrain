@@ -10,7 +10,9 @@ class ApplicationController < ActionController::Base
 
   def forbid_login_user
     if @current_user
-      redirect_to posts_path
+      session[:user_id] = nil
+      @current_user = nil  
+      redirect_to root_path
     end
   end
 

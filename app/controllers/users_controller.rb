@@ -20,7 +20,9 @@ class UsersController < ApplicationController
   end
 
   def logout
-    redirect_to '/'
+    session[:user_id] = nil
+    @current_user = nil
+    redirect_to root_path
   end
 
   def index

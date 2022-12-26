@@ -38,7 +38,7 @@
               <%= button_to 'コミット解除', commit_post_path(@post), data: { turbo: false }, id: 'commit_button', class: 'button3' %>
             </div>
             <div class="edit-menu">
-              <%= link_to '回答', answer_post_path(@post), id: 'answer_button', class: 'button1' %>
+              <%= link_to '回答', answer_post_path(@post), data: { turbo: false }, id: 'answer_button', class: 'button1' %>
             </div>
           <% else %>
             <div class="edit-menu">

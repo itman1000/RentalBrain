@@ -1,5 +1,7 @@
 Rails.application.routes.draw do  
 
+  get root 'home#top'
+
   resources :posts do
     collection do
       post 'confirm'
@@ -31,7 +33,6 @@ Rails.application.routes.draw do
 
   resources :posts, :users
 
-  get '/', to: 'home#top'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
