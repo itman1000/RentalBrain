@@ -43,12 +43,12 @@
           <div class="posts-index-user-name2">
             <%= post.user.name %>
           </div>
-          <%= link_to "#{post.title}", "/posts/#{post.id}", data: { turbo: false }, class: "index-item3" %>
+          <%= link_to "#{post.title}", post_path(post), data: { turbo: false }, class: "index-item3" %>
         </div>
       <% end %>
     </div>
     <div class="turn-back">
-    <%= link_to '戻る', users_path, remote: false, class: 'return' %>
+    <%= link_to '戻る', users_path, data: { turbo: false }, class: 'return' %>
     </div>
   </div>
 </div>

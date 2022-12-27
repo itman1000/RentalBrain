@@ -12,10 +12,10 @@ class UsersController < ApplicationController
     @user = User.find_by(email: params[:email].downcase)
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to(posts_path)
+      redirect_to posts_path
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
-      render(login_form_users_path)
+      render login_form_users_path
     end
   end
 
@@ -79,7 +79,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to '/'
+    redirect_to root_path
   end
 
   def ensure_correct_user

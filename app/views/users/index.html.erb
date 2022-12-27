@@ -9,7 +9,7 @@
         <div class="index-user-image">
           <%= image_tag user.avatar %>
         </div>
-        <%= link_to "#{user.name}", "/users/#{user.id}", data: { turbo: false }, class: "index-item2" %>
+        <%= link_to "#{user.name}", user_path(user), data: { turbo: false }, class: "index-item2" %>
       </div>
     <% end %>
   </div>

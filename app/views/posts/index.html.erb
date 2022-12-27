@@ -12,12 +12,12 @@
         <div class="posts-index-user-name">
           <%= post.user.name %>
         </div>
-        <%= link_to "#{post.title}", "/posts/#{post.id}", data: { turbo: false }, class: "index-item" %>
+        <%= link_to "#{post.title}", post_path(post), data: { turbo: false }, class: "index-item" %>
         <div class="posts-index-reward">
           <%= "報酬額: #{post.reward}" %>
         </div>
         <div class="posts-index-commit">
-          <% if post.commit == 100000 %>
+          <% if post.commit == 0xffffffff %>
             <p>解決済</p>
           <% else %>
             <p>未解決</p>

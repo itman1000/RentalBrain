@@ -2,7 +2,7 @@
   <h3>投稿編集</h3>
 </div>
 
-<%= form_with model: @post, url: edit_confirm_post_path(@post), data: { turbo: false } do |form| %>
+<%= form_with model: @post, data: { turbo: false } do |form| %>
   <div class="main posts-new">
     <div class="container">      
       <div class="text-field-group">
@@ -34,5 +34,5 @@
 <% end %>
 
 <div class="turn-back">
-  <%= link_to '戻る', post_path(@post, id: @post.id), data: { turbo: false }, class: 'return' %>
+  <%= link_to '戻る', post_path, data: { turbo: false }, class: 'return' %>
 </div>
