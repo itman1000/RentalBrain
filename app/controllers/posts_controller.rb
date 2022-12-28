@@ -10,12 +10,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = @post.user
-    if @post.answer
-      @answer_user = User.find(@post.answer.user_id)
-    else
-      @answer_user = nil
-    end
-
+    @answer_user = User.find_by(id: @post.answer&.user_id)
     @likes_count = Like.where(post_id: @post.id).count
   end
 
@@ -82,7 +77,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to Post, status: :see_other
+    redirect_to posts, status: :see_other
   end
 
   def answer_delete
@@ -99,6 +94,7 @@ class PostsController < ApplicationController
       @post.commit = nil
     end
     @post.save
+    redirect_to post_path(@post)
   end
 
   def ensure_correct_post_user
@@ -110,7 +106,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :content, :user_id, :reward)
+    params.require(:post).permit(:title, :content, :user_id, :reward, :commit)
   end
 
   def answer_params

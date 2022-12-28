@@ -84,6 +84,20 @@
   background: linear-gradient(#faa, #f33);
 }
 
+.posts-index-commited {
+  position: absolute;
+  width: 8vw;
+  height: 2vw;
+  top: 3.5vw;
+  right: 1vw;
+  color: #fff;
+  font-size: 1.2vw;
+  margin-bottom: .5vw;
+  border-radius: .2vw;
+  background: linear-gradient(#aaf8aa, #1b1);
+}
+
+.posts-index-commited p,
 .posts-index-commit p {
   color: #fff;
   text-align: center;
@@ -274,7 +288,7 @@
   line-height: 2.4vw;
   text-align: center;
   font-size: 1.2vw;
-  background: linear-gradient(#aaf, #77f);
+  background: linear-gradient(#bbf, #77f);
   box-shadow: .1vw .1vw .1vw #aaa;
 }
 
@@ -296,7 +310,7 @@
   text-align: center;
   line-height: 2.4vw;
   font-size: 1.2vw;
-  background: linear-gradient(#f88, #f55);
+  background: linear-gradient(#f99, #f55);
   box-shadow: .1vw .1vw .1vw #aaa;
 }
 
@@ -318,7 +332,7 @@
   text-align: center;
   line-height: 2.4vw;
   font-size: 1.2vw;
-  background: linear-gradient(#6b6, #3a3);
+  background: linear-gradient(#5e5, #1a1);
   box-shadow: .1vw .1vw .1vw #aaa;
 }
 
@@ -332,7 +346,7 @@
 }
 
 .lighten {
-  background: linear-gradient(#6e6, #3d3);;
+  background: linear-gradient(#8f8, #4c4);;
 }
 
 .button4 {
@@ -344,7 +358,7 @@
   line-height: 2.4vw;
   text-align: center;
   font-size: 1.2vw;
-  background: linear-gradient(#ccc, #999);
+  background: linear-gradient(#ddd, #999);
   box-shadow: .1vw .1vw .1vw #777;
   cursor: default;
   pointer-events: none;

@@ -16,13 +16,15 @@
         <div class="posts-index-reward">
           <%= "報酬額: #{post.reward}" %>
         </div>
-        <div class="posts-index-commit">
-          <% if post.commit == 0xffffffff %>
+        <% if post.answer %>
+          <div class="posts-index-commited">
             <p>解決済</p>
-          <% else %>
+          </div>
+        <% else %>
+          <div class="posts-index-commit">
             <p>未解決</p>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>

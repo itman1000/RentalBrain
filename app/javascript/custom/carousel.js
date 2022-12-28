@@ -13,9 +13,9 @@
     ul.style.transform = `translateX(${-1 * slidesWidth * currentIndex / 10}rem)`;
   }
 
-  function carouselReverse(terms, setVal) {
+  function carouselReverse(terms, set_val) {
     if (currentIndex === terms) {
-      currentIndex = setVal;
+      currentIndex = set_val;
       ul.classList.remove('ul-transition');
       updateDots();
       carouselScroll();

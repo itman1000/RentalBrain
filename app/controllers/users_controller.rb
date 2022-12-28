@@ -79,7 +79,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to root_path
+    redirect_to root_path, status: :see_other
   end
 
   def ensure_correct_user
