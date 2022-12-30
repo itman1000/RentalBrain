@@ -56,7 +56,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if params[:back]
       @user.destroy
-      render :new, status: :see_other;
+      render :new, status: :see_other
     else
       session[:user_id] = @user.id
       redirect_to user_path(@user)

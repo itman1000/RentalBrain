@@ -2,6 +2,8 @@
   <h3>質問詳細</h3>
 </div>
 
+<% ### 質問詳細　############################################################################## %>
+
 <div class="main posts-show">
   <div class="container">
     <div class="posts-show-item">
@@ -24,47 +26,55 @@
         <%= @post.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
       </div>
 
+
+<% ### 投稿ユーザー ＝ ログインユーザー　########################################################### %>
+
       <div class="posts-menus">
         <% if @post.user_id == @current_user.id %>
           <div class="edit-menu">
-            <%= link_to '編集', edit_post_path, data: { turbo: false }, class: 'button1' %>
+            <%= button_to '編集', edit_post_path, class: 'button1' %>
           </div>
           <div class="edit-menu" id='eliminate' >
-            <%= link_to '削除', "#", class: 'button2' %>
+            <%= button_to '削除', "#", class: 'button2' %>
           </div>
         <% else %>
+          <%= "現在:#{@current_user.id}" %>
+          <%= "コミット:#{@post.commit}" %>
           <% if @post.answer %>
             <div class="edit-menu">
               <%= link_to '回答済み', "#", id: 'commit_button', class: 'button4' %>
             </div>
             <div class="edit-menu">
-              <%= link_to '回答', '#', id: 'answer_button', class: 'button4' %>
+              <%= button_to '回答', '#', id: 'answer_button', class: 'button4' %>
             </div>
           <% elsif !@post.commit %>
             <div class="edit-menu">
-              <%= button_to 'コミット', commit_post_path(@post), autoscroll: true, data: { autoscroll_block: "end" }, id: 'commit_button', class: 'button3 lighten' %>
+              <%= button_to 'コミット', commit_post_path(@post), data: { turbo: false }, id: 'commit_button', class: 'button3 lighten' %>
             </div>
             <div class="edit-menu">
-              <%= link_to '回答', '#', id: 'answer_button', class: 'button4' %>
+              <%= link_to '回答', answer_post_path(@post), id: 'answer_button', class: 'button4' %>
             </div>
           <% elsif @post.commit == @current_user.id %>
             <div class="edit-menu">
-              <%= button_to 'コミット解除', commit_post_path(@post), autoscroll: true, data: { autoscroll_block: "end" }, id: 'commit_button', class: 'button3' %>
+              <%= button_to 'コミット解除', commit_post_path(@post), data: { turbo: false }, id: 'commit_button', class: 'button3' %>
             </div>
             <div class="edit-menu">
-              <%= link_to '回答', answer_post_path(@post), data: { turbo: false }, id: 'answer_button', class: 'button1' %>
+              <%= link_to '回答', answer_post_path(@post), id: 'answer_button', class: 'button1' %>
             </div>
           <% else %>
             <div class="edit-menu">
-              <%= link_to 'コミット解除', "#", id: 'commit_button', class: 'button4' %>
+              <%= button_to 'コミット解除', "#", id: 'commit_button', class: 'button4' %>
             </div>
             <div class="edit-menu">
-              <%= link_to '回答', '#', id: 'answer_button', class: 'button4' %>
+              <%= button_to '回答', '#', id: 'answer_button', class: 'button4' %>
             </div>
           <% end %>
         <% end %>
       </div>
     </div>
+
+
+<% ### 回答　########################################################################### %>
 
     <% if @post.answer %>
       <div class="answer-show-item">
@@ -87,11 +97,11 @@
 
         <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
           <%= button_to "/likes/#{@post.id}/destroy", data: { turbo: false } do %>
-            <span class="fa fa-heart liked-btn"></span>
+            <span class="fa fa-heart like-btn"></span>
           <% end %>
         <% else %>
           <%= button_to "/likes/#{@post.id}/create", data: { turbo: false } do %>
-            <span class="fa fa-heart unliked-btn"></span>
+            <span class="fa fa-heart dislike-btn"></span>
           <% end %>
         <% end %>
         <p><%= @likes_count %></p>
@@ -99,10 +109,10 @@
         <div class="posts-menus">
           <% if @post.answer.user_id == @current_user.id %>
             <div class="edit-menu">
-              <%= link_to '編集', "/posts/#{@post.id}/edit", data: { turbo: false }, class: 'button1' %>
+              <%= link_to '編集', "/posts/#{@post.id}/edit", class: 'button1' %>
             </div>
             <div class="edit-menu" id='eliminate' >
-              <%= link_to '削除', "#", class: 'button2' %>
+              <%= button_to '削除', dummy_post_path(@post), class: 'button5' %>
             </div>
           <% end %>
         </div>
@@ -125,7 +135,7 @@
         <%= link_to '削除', post_path(@post), data: { turbo_method: :delete }, class: 'button2' %>
       <% elsif @post.answer %>
         <% if @post.answer.user_id == @current_user.id %>
-          <%= link_to '削除', answer_delete_post_path(@post), data: { turbo_method: :delete }, class: 'button2' %>
+          <%= button_to '削除', answer_delete_post_path(@post), method: :delete, data: { turbo: false }, class: 'button2' %>
         <% end %>
       <% end %>
     </div>

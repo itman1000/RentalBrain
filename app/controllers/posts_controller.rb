@@ -83,18 +83,21 @@ class PostsController < ApplicationController
   def answer_delete
     @post = Post.find(params[:id])
     @post.answer.destroy
-    redirect_to post_path(@post)
+    @post.commit = nil
+    @post.save!
+    redirect_to post_path(@post), status: :see_other
   end
 
+  
   def commit
     @post = Post.find(params[:id])
+
     if !@post.commit
       @post.commit = @current_user.id
     else
       @post.commit = nil
     end
-    @post.save
-    redirect_to post_path(@post)
+    @post.save!
   end
 
   def ensure_correct_post_user
@@ -102,6 +105,9 @@ class PostsController < ApplicationController
     if @post.user_id != @current_user.id
       redirect_to posts_path
     end
+  end
+
+  def dummy
   end
 
   private

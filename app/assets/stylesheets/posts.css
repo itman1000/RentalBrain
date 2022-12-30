@@ -84,7 +84,7 @@
   background: linear-gradient(#faa, #f33);
 }
 
-.posts-index-commited {
+.posts-index-committed {
   position: absolute;
   width: 8vw;
   height: 2vw;
@@ -97,7 +97,7 @@
   background: linear-gradient(#aaf8aa, #1b1);
 }
 
-.posts-index-commited p,
+.posts-index-committed p,
 .posts-index-commit p {
   color: #fff;
   text-align: center;
@@ -248,11 +248,11 @@
   display: none;
 }
 
-.unliked-btn {
+.dislike-btn {
   color: #c1cbd2;
 }
 
-.liked-btn {
+.like-btn {
   color: #ff2581;
 }
 
@@ -362,6 +362,28 @@
   box-shadow: .1vw .1vw .1vw #777;
   cursor: default;
   pointer-events: none;
+}
+
+.button5 {
+  display: inline-block;
+  width: 8vw;
+  height: 2.4vw;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  line-height: 2.4vw;
+  font-size: 1.2vw;
+  background: linear-gradient(#f99, #f55);
+  box-shadow: .1vw .1vw .1vw #aaa;
+}
+
+.button5:hover {
+  filter: brightness(1.3);
+}
+
+.button5:active {
+  transform: translate(.1vw, .1vw);
+  box-shadow: none;
 }
 
 /*** 新規投稿 ******************************************************/
