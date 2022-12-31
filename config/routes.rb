@@ -1,8 +1,6 @@
 Rails.application.routes.draw do  
 
-  get root 'home#top'
 
-  resources  :users, :posts
 
   resources :users do
     collection do
@@ -31,9 +29,12 @@ Rails.application.routes.draw do
     end
   end
 
-  post 'likes/:post_id/create', to: 'likes#create'
-  post 'likes/:post_id/destroy', to: 'likes#destroy'
+  post 'likes/:answer_id/create', to: 'likes#create'
+  post 'likes/:answer_id/destroy', to: 'likes#destroy'
 
+  resources  :users, :posts
+
+  get root 'home#top'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

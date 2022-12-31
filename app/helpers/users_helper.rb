@@ -10,7 +10,7 @@ module UsersHelper
   end
 
   def require_login
-    redirect_to '/' if !logged_in?
+    redirect_to root_path if !logged_in?
   end
 
   def user_error_message_change(email_input_flg, password_input_flg, message)
