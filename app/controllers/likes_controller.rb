@@ -1,18 +1,14 @@
 class LikesController < ApplicationController
-  before_action :require_login, only: [:create]
+  before_action :require_login, only: [:create, :destroy]
 
   def create
     @post = Post.find(params[:post_id])
-    @like = Like.new(user_id: @current_user.id, post_id: @post.id)
-    @like.save
-    redirect_to ("/posts/#{params[:post_id]}")
+    @post.answer.likes.create(user_id: @post.answer.user_id)
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
-    @like = Like.find_by(user_id: @current_user.id, post_id: @post.id)
+    @like = Like.find(params[:id])
     @like.destroy
-    redirect_to ("/posts/#{params[:post_id]}"), status: :see_other
   end
 
 end

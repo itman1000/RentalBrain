@@ -22,17 +22,16 @@ Rails.application.routes.draw do
       post 'dummy'
       patch 'edit_confirm'
       post 'commit'
-      get 'answer'
-      post 'answer_confirm'
-      post 'answer_create'
-      delete 'answer_delete'
+    end
+
+    resource :answer, controller: 'answer', only: [:new, :create, :destroy] do
+      collection do
+        post 'answer_confirm'
+      end
+      
+      resources :likes, only: [:create, :destroy]
     end
   end
-
-  post 'likes/:answer_id/create', to: 'likes#create'
-  post 'likes/:answer_id/destroy', to: 'likes#destroy'
-
-  resources  :users, :posts
 
   get root 'home#top'
 

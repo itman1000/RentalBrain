@@ -50,14 +50,14 @@
               <%= button_to 'コミット', commit_post_path(@post), data: { turbo: false }, id: 'commit_button', class: 'button3 lighten' %>
             </div>
             <div class="edit-menu">
-              <%= link_to '回答', answer_post_path(@post), id: 'answer_button', class: 'button4' %>
+              <%= link_to '回答', new_post_answer_path(@post), id: 'answer_button', class: 'button4' %>
             </div>
           <% elsif @post.commit == @current_user.id %>
             <div class="edit-menu">
               <%= button_to 'コミット解除', commit_post_path(@post), data: { turbo: false }, id: 'commit_button', class: 'button3' %>
             </div>
             <div class="edit-menu">
-              <%= link_to '回答', answer_post_path(@post), id: 'answer_button', class: 'button1' %>
+              <%= link_to '回答', new_post_answer_path(@post), id: 'answer_button', class: 'button1' %>
             </div>
           <% else %>
             <div class="edit-menu">
@@ -93,16 +93,22 @@
           <%= @post.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
         </div>
 
-        <% if Like.find_by(user_id: @current_user.id %>
-          <%= button_to "/likes/#{@post.answer.id}/destroy", data: { turbo: false } do %>
-            <span class="fa fa-heart like-btn"></span>
+
+        <%= "post.id=#{@post.id}" %>
+        <%= "user.id=#{@user.id}" %>
+        <%= "answer.id=#{@answer.id}" %>
+        <%= "answer_user_id=#{@answer_user.id}" %>
+
+        <% if @like %>
+          <%= button_to "/posts/#{@post.id}/answer/likes/#{@like.id}", method: :delete, data: { turbo: false } do %>
+            <i class="fa-solid fa-heart like-btn"></i>
           <% end %>
         <% else %>
-          <%= button_to "/likes/#{@post.answer.id}/create", data: { turbo: false } do %>
-            <span class="fa fa-heart dislike-btn"></span>
+          <%= button_to "/posts/#{@post.id}/answer/likes", data: { turbo: false }  do %>
+            <i class="fa-solid fa-heart dislike-btn"></i>
           <% end %>
         <% end %>
-        <p><%= @likes_count %></p>
+        <p><%= @likes.count %></p>
 
         <div class="posts-menus">
           <% if @post.answer.user_id == @current_user.id %>
@@ -130,7 +136,7 @@
         <%= button_to '削除', post_path(@post), method: :delete, data: { turbo: false }, class: 'button2' %>
       <% elsif @post.answer %>
         <% if @post.answer.user_id == @current_user.id %>
-          <%= button_to '削除', answer_delete_post_path(@post), method: :delete, data: { turbo: false }, class: 'button2' %>
+          <%= button_to '削除', post_answer_path(@post), method: :delete, data: { turbo: false }, class: 'button2' %>
         <% end %>
       <% end %>
     </div>
