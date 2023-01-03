@@ -27,7 +27,7 @@ class AnswerController < ApplicationController
     @post.answer.destroy
     @post.commit = nil
     @post.save!
-    redirect_to "/posts/#{params[:post_id]}", status: :see_other
+    redirect_to post_path(@post), status: :see_other
   end
 
   private

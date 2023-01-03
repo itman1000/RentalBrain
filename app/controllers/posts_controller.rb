@@ -11,14 +11,17 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = @post.user
     @like = nil
+    @likes_count = 0
+    @likeid = 0
 
-    if @post.answer
+    if @post.answer.presence
       @answer = @post.answer
       @answer_user = User.find_by(id: @answer.user_id)
 
-      if @answer.likes
-        @likes = @answer.likes
-        @like = @likes.find_by(user_id: @current_user.id, answer_id: @answer.id)
+      if @answer.likes.presence
+        @likes_count = @answer.likes.count
+        @like = @post.answer.likes.find_by(user_id: @current_user.id)
+        @likeid = @like.id
       end  
     end
   end

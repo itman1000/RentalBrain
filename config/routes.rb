@@ -28,10 +28,10 @@ Rails.application.routes.draw do
       collection do
         post 'answer_confirm'
       end
-      
-      resources :likes, only: [:create, :destroy]
     end
   end
+
+  resources :likes, only: [:create, :destroy]
 
   get root 'home#top'
 

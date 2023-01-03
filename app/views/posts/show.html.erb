@@ -27,7 +27,6 @@
       </div>
 
 
-<% ### 投稿ユーザー ＝ ログインユーザー　########################################################### %>
 
       <div class="posts-menus">
         <% if @post.user_id == @current_user.id %>
@@ -97,18 +96,21 @@
         <%= "post.id=#{@post.id}" %>
         <%= "user.id=#{@user.id}" %>
         <%= "answer.id=#{@answer.id}" %>
+        <%= "answer.likes=#{@answer.likes}" %>
         <%= "answer_user_id=#{@answer_user.id}" %>
 
-        <% if @like %>
-          <%= button_to "/posts/#{@post.id}/answer/likes/#{@like.id}", method: :delete, data: { turbo: false } do %>
+        <% if @like.presence %>
+          <%= button_to like_path(@like), method: :delete, params: {post_id: @post.id}, data: { turbo: false } do %>
             <i class="fa-solid fa-heart like-btn"></i>
           <% end %>
         <% else %>
-          <%= button_to "/posts/#{@post.id}/answer/likes", data: { turbo: false }  do %>
+          <%= button_to likes_path, params: {post_id: @post.id}, data: { turbo: false }  do %>
             <i class="fa-solid fa-heart dislike-btn"></i>
           <% end %>
         <% end %>
-        <p><%= @likes.count %></p>
+        <p><%= @likes_count %></p>
+        <%= "likeid=#{@likeid}" %>
+
 
         <div class="posts-menus">
           <% if @post.answer.user_id == @current_user.id %>
