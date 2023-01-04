@@ -46,17 +46,17 @@
             </div>
           <% elsif !@post.commit %>
             <div class="edit-menu">
-              <%= button_to 'コミット', commit_post_path(@post), data: { turbo: false }, id: 'commit_button', class: 'button3 lighten' %>
+              <%= button_to 'コミット', commit_post_path(@post), id: 'commit_button', class: 'button3 lighten' %>
             </div>
             <div class="edit-menu">
-              <%= link_to '回答', new_post_answer_path(@post), id: 'answer_button', class: 'button4' %>
+              <%= link_to '回答', new_answer_path(post_id: @post.id), id: 'answer_button', class: 'button4' %>
             </div>
           <% elsif @post.commit == @current_user.id %>
             <div class="edit-menu">
-              <%= button_to 'コミット解除', commit_post_path(@post), data: { turbo: false }, id: 'commit_button', class: 'button3' %>
+              <%= button_to 'コミット解除', commit_post_path(@post), id: 'commit_button', class: 'button3' %>
             </div>
             <div class="edit-menu">
-              <%= link_to '回答', new_post_answer_path(@post), id: 'answer_button', class: 'button1' %>
+              <%= link_to '回答', new_answer_path(post_id: @post.id), id: 'answer_button', class: 'button1' %>
             </div>
           <% else %>
             <div class="edit-menu">
@@ -100,11 +100,11 @@
         <%= "answer_user_id=#{@answer_user.id}" %>
 
         <% if @like.presence %>
-          <%= button_to like_path(@like), method: :delete, params: {post_id: @post.id}, data: { turbo: false } do %>
+          <%= button_to answer_like_path(@like), method: :delete, params: { post_id: @post.id } do %>
             <i class="fa-solid fa-heart like-btn"></i>
           <% end %>
         <% else %>
-          <%= button_to likes_path, params: {post_id: @post.id}, data: { turbo: false }  do %>
+          <%= button_to answer_likes_path, params: { post_id: @post.id } do %>
             <i class="fa-solid fa-heart dislike-btn"></i>
           <% end %>
         <% end %>
@@ -138,7 +138,7 @@
         <%= button_to '削除', post_path(@post), method: :delete, data: { turbo: false }, class: 'button2' %>
       <% elsif @post.answer %>
         <% if @post.answer.user_id == @current_user.id %>
-          <%= button_to '削除', post_answer_path(@post), method: :delete, data: { turbo: false }, class: 'button2' %>
+          <%= button_to '削除', answer_path, method: :delete,  params: { post_id: @post.id }, data: { turbo: false }, class: 'button2' %>
         <% end %>
       <% end %>
     </div>

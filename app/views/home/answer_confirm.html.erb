@@ -8,7 +8,7 @@
       <%= safe_join(@answer.content.split("\n"),tag(:br)) %>
     </div>
     
-    <%= form_with model: @answer, url: "/posts/#{params[:post_id]}/answer", data: { turbo: false } do |form| %>
+    <%= form_with model: @answer, url: answer_confirm_answer_path, data: { turbo: false } do |form| %>
       <%= form.hidden_field :content %>
       <%= form.hidden_field :post_id %>
       <%= form.hidden_field :user_id %>

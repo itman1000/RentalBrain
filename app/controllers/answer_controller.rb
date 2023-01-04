@@ -7,14 +7,13 @@ class AnswerController < ApplicationController
   end
 
   def answer_confirm
-    @post = Post.find_by(id: params[:post_id])
-    @answer = @post.build_answer(answer_params)
+    @answer = Answer.new(answer_params)
     render :new if @answer.invalid?
   end
 
   def create
-    @post = Post.find_by(id: params[:post_id])
-    @answer = @post.build_answer(answer_params)
+    @answer = Answer.new(answer_params)
+    @post = @answer.post
     if params[:back] || !@answer.save
       render :new
     else
@@ -27,7 +26,7 @@ class AnswerController < ApplicationController
     @post.answer.destroy
     @post.commit = nil
     @post.save!
-    redirect_to post_path(@post), status: :see_other
+    redirect_to post_path(@post)
   end
 
   private

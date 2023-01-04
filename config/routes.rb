@@ -23,15 +23,15 @@ Rails.application.routes.draw do
       patch 'edit_confirm'
       post 'commit'
     end
-
-    resource :answer, controller: 'answer', only: [:new, :create, :destroy] do
-      collection do
-        post 'answer_confirm'
-      end
-    end
   end
 
-  resources :likes, only: [:create, :destroy]
+  resource :answer, controller: 'answer', only: [:new, :create, :destroy] do
+    collection do
+      post 'answer_confirm'
+    end
+
+    resources :likes, only: [:create, :destroy]
+  end
 
   get root 'home#top'
 

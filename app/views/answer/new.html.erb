@@ -2,7 +2,7 @@
   <h3>回答投稿</h3>
 </div>
 
-<%= form_with model: @answer, url: answer_confirm_post_answer_path, data: { turbo: false }  do |form| %>
+<%= form_with(model: @answer, url: answer_confirm_answer_path, data: { turbo: false }) do |form| %>
   <div class="main answer-new">
     <div class="container">
       <%= form.hidden_field :post_id, value: @post.id %>
