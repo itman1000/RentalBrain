@@ -18,7 +18,8 @@ class LikesController < ApplicationController
     end
 
     @like = @post.answer.likes.create(user_id: @current_user.id)
-    render "posts/show"
+
+    redirect_to @post
   end
 
   def destroy
@@ -40,7 +41,7 @@ class LikesController < ApplicationController
       end  
     end
   
-    render 'posts/show'
+    redirect_to @post
   end
 
 end

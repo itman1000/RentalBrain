@@ -3,5 +3,7 @@ import "@hotwired/turbo-rails"
 import "controllers"
 
 // import "./custom/browser_reload.js"   //ブラウザバック時のリロード
+
+// import "./custom/like_button.js"
 import "./custom/commit_button.js"
 import "./custom/modal.js"
