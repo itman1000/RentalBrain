@@ -23,6 +23,15 @@ Rails.application.routes.draw do
       patch 'edit_confirm'
       post 'commit'
     end
+    
+    resources :comments do
+      collection do
+        post 'confirm'
+      end
+      member do
+        patch 'edit_confirm'
+      end  
+    end
   end
 
   resource :answer, controller: 'answer', only: [:new, :create, :destroy] do

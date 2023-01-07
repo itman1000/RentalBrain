@@ -37,7 +37,7 @@
             <%= button_to '削除', dummy_post_path(@post), class: 'button5' %>
           </div>
         <% else %>
-          <% if @post.answer %>
+          <% if @post.answer.presence %>
             <div class="edit-menu">
               <%= link_to '回答済み', "#", id: 'commit_button', class: 'button4' %>
             </div>
@@ -66,63 +66,20 @@
               <%= button_to '回答', '#', id: 'answer_button', class: 'button4' %>
             </div>
           <% end %>
+          <div class="edit-menu">
+            <%= button_to '返信', new_post_comment_path(@post), method: :get, class: 'button1' %>
+          </div>
         <% end %>
       </div>
     </div>
 
 
-<% ### 回答　########################################################################### %>
+<%#### 回答　########################################################################### %>
+    
+    <%= render partial: "/answer/answer", locals: { post: @post, like: @like, likes_count: @likes_count } %>
 
-    <% if @post.answer %>
-      <div class="answer-show-item">
-        <div class="posts-user-image">
-          <%= image_tag  @answer_user.avatar %>
-        </div>
-        <div class="posts-user-name"> 
-          <%=  @answer_user.name %>
-        </div>
-        <div class="posts-title">
-          <p><%= '回答' %></p>
-        </div>
-        <div class="posts-content">
-          <%= safe_join(@post.answer.content.split("\n"),tag(:br)) %>
-        </div>
+<%#### 返信　########################################################################### %>
 
-        <div class="posts-time">
-          <%= @post.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
-        </div>
-
-
-        <%= "post.id=#{@post.id}" %>
-        <%= "user.id=#{@user.id}" %>
-        <%= "answer.id=#{@answer.id}" %>
-        <%= "answer.likes=#{@answer.likes}" %>
-        <%= "answer_user_id=#{@answer_user.id}" %>
-
-        <% if @like.presence %>
-          <%= button_to answer_like_path(@like), method: :delete, params: { post_id: @post.id }, html: { data: { turbo_frame: "like-count" }} do %>
-            <i class="fa-solid fa-heart like-btn", id="like_button"></i>
-          <% end %>
-        <% else %>
-          <%= button_to answer_likes_path, params: { post_id: @post.id },  html: { data: { turbo_frame: "like-count" }} do %>
-            <i class="fa-solid fa-heart dislike-btn", id="like_button"></i>
-          <% end %>
-        <% end %>
-        <%= turbo_frame_tag "like-count" do %>
-          <p><%= @likes_count %></p>
-        <% end %>
-        <%= "likeid=#{@likeid}" %>
-
-
-        <div class="posts-menus">
-          <% if @post.answer.user_id == @current_user.id %>
-            <div class="edit-menu" id='eliminate' >
-              <%= button_to '削除', dummy_post_path(@post), class: 'button5' %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
 
     <div class="turn-back">
       <%= link_to '戻る', posts_path, data: { turbo: false }, class: 'return' %>
@@ -138,7 +95,7 @@
     <div id="del">
       <% if @post.user_id == @current_user.id %>
         <%= button_to '削除', post_path(@post), method: :delete, data: { turbo: false }, class: 'button2' %>
-      <% elsif @post.answer %>
+      <% elsif @post.answer.presence %>
         <% if @post.answer.user_id == @current_user.id %>
           <%= button_to '削除', answer_path, method: :delete,  params: { post_id: @post.id }, data: { turbo: false }, class: 'button2' %>
         <% end %>

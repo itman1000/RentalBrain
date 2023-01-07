@@ -1,0 +1,41 @@
+<% if @post.answer.presence %>
+  <div class="answer-show-item">
+    <div class="posts-user-image">
+      <%= image_tag  @answer_user.avatar %>
+    </div>
+    <div class="posts-user-name"> 
+      <%=  @answer_user.name %>
+    </div>
+    <div class="posts-title">
+      <p><%= '回答' %></p>
+    </div>
+    <div class="posts-content">
+      <%= safe_join(@post.answer.content.split("\n"),tag(:br)) %>
+    </div>
+
+    <div class="posts-time">
+      <%= @post.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
+    </div>
+
+    <%= turbo_frame_tag "liketag" do %>
+      <% if like.presence %>
+        <%= button_to answer_like_path(like), method: :delete, params: { post_id: post.id } do %>
+          <i class="fa-solid fa-heart like-btn", id="like_button"></i>
+        <% end %>
+      <% else %>
+        <%= button_to answer_likes_path, params: { post_id: post.id } do %>
+          <i class="fa-solid fa-heart dislike-btn", id="like_button"></i>
+        <% end %>
+      <% end %>
+      <p><%= likes_count %></p>
+    <% end %>
+
+    <div class="posts-menus">
+      <% if @post.answer.user_id == @current_user.id %>
+        <div class="edit-menu" id='eliminate' >
+          <%= button_to '削除', dummy_post_path(@post), class: 'button5' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

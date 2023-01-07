@@ -12,7 +12,6 @@ class PostsController < ApplicationController
     @user = @post.user
     @like = nil
     @likes_count = 0
-    @likeid = 0
 
     if @post.answer.presence
       @answer = @post.answer
@@ -21,7 +20,6 @@ class PostsController < ApplicationController
       if @answer.likes.presence
         @likes_count = @answer.likes.count
         @like = @post.answer.likes.find_by(user_id: @current_user.id)
-        @likeid = @like.id
       end  
     end
   end

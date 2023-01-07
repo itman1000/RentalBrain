@@ -1,0 +1,29 @@
+<div class="page-title">
+  <h3>返信投稿</h3>
+</div>
+
+<%= form_with( model: @comment, url: confirm_post_comments_path, data: { turbo: false }) do |form| %>
+  <div class="main comment-new">
+    <div class="container">
+      <%= form.hidden_field :post_id, value: @post.id %>
+      <%= form.hidden_field :user_id, value: @current_user.id %>
+      <div class="text-area-group3">
+        <%= form.label :content, "返信内容" %>
+        <%= form.text_area :content, class: "text-area3" %>
+      </div>
+      <div>
+        <%= form.submit "投稿", class: "button1" %>
+      </div>
+      
+      <% @post.errors.full_messages.each do |message| %>
+        <div class="form-error3">
+          <%= message %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<div class="turn-back">
+  <%= link_to '戻る', "/posts/#{@post.id}", data: { turbo: false }, class: 'return' %>
+</div>
