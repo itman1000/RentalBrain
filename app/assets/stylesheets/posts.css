@@ -118,6 +118,7 @@
   box-shadow: .3vw .3vw .3vw #eee;
   line-height: 1.5vw;
   padding: 2vw;
+  margin-bottom: 2vw;
   font-size: .9vw;
   border-radius: .3vw;
 }
@@ -129,8 +130,8 @@
   box-shadow: .3vw .3vw .3vw #eee;
   background-color: #fee;
   line-height: 1.5vw;
-  margin-top: 3vw;
   padding: 2vw;
+  margin-bottom: 2vw;
   font-size: .9vw;
   border-radius: .3vw;
 }
@@ -645,4 +646,64 @@ turbo-frame {
   padding: .5vw;
   font-size: .9vw;
   text-align: left;
+}
+
+/*** 返信一覧 ******************************************************/
+.comments-index-item {
+  display: flex;
+  position: relative;
+  color: #333;
+  border: .1vw solid #ddd;
+  box-shadow: .3vw .3vw .3vw #eee;
+  line-height: 1.5vw;
+  padding: 1vw;
+  font-size: .9vw;
+  border-radius: .3vw;
+}
+
+.comment-user {
+  flex-direction: column;
+  flex: 1;
+}
+
+.comment-index-user-name {
+  align-self: center;
+  margin: 0 0 0 2vw;
+}
+
+.comment-index-user-image {
+  width: 6vw;
+  height: 6vw;
+  max-width: 6vw;
+  max-height: 6vw;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: .5vw .5vw .5vw .5vw;
+}
+
+.comment-index-user-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.comment-item {
+  display: flex;
+  flex-direction: column;
+  flex: 7;
+  margin-top: .5vw;
+}
+
+.comment-time {
+  line-height: 1vw;
+  margin-top: 1vw;
+}
+
+.comment-menus {
+  margin-top: auto;
+  align-self: flex-end;
+}
+
+.comment-edit-menu {
+  margin-right: .5vw;
 }

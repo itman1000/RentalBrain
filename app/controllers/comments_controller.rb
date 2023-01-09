@@ -20,18 +20,11 @@ class CommentsController < ApplicationController
     else
       redirect_to post_path(@post)
     end
-
   end
 
-  def edit
+  def dummy
   end
-
-  def edit_confirm
-  end
-
-  def update
-  end
-
+  
   def destroy
   end
 

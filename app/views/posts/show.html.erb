@@ -80,6 +80,7 @@
 
 <%#### 返信　########################################################################### %>
 
+    <%= render partial: "/comments/comment", collection: @comments, locals: { post: @post } %>
 
     <div class="turn-back">
       <%= link_to '戻る', posts_path, data: { turbo: false }, class: 'return' %>
