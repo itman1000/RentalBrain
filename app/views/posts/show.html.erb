@@ -33,8 +33,8 @@
           <div class="edit-menu">
             <%= link_to '編集', edit_post_path, data: { turbo_method: :get }, class: 'button1' %>
           </div>
-          <div class="edit-menu" id='eliminate' >
-            <%= button_to '削除', dummy_post_path(@post), class: 'button5' %>
+          <div class="edit-menu" >
+            <%= button_to '削除', dummy_post_path(@post), class: 'destroy-modal button5' %>
           </div>
         <% else %>
           <% if @post.answer.presence %>
@@ -76,11 +76,13 @@
 
 <%#### 回答　########################################################################### %>
     
-    <%= render partial: "/answer/answer", locals: { post: @post, like: @like, likes_count: @likes_count } %>
+    <%= render partial: "/answer/answer", locals: { post: @post, like: @like, answer_user: @answer_user, likes_count: @likes_count } %>
 
 <%#### 返信　########################################################################### %>
 
     <%= render partial: "/comments/comment", collection: @comments, locals: { post: @post } %>
+
+    <%= "tcID=#{@tcid}" %>
 
     <div class="turn-back">
       <%= link_to '戻る', posts_path, data: { turbo: false }, class: 'return' %>
@@ -94,16 +96,15 @@
   <p>本当に削除してよろしいですか？</p>
   <div class="buttons">
     <div id="del">
-      <% if @post.user_id == @current_user.id %>
+      <% if @post.user_id == @current_user.id then %>
         <%= button_to '削除', post_path(@post), method: :delete, data: { turbo: false }, class: 'button2' %>
-      <% elsif @post.answer.presence %>
-        <% if @post.answer.user_id == @current_user.id %>
-          <%= button_to '削除', answer_path, method: :delete,  params: { post_id: @post.id }, data: { turbo: false }, class: 'button2' %>
-        <% end %>
+      <% elsif @target_comment then %>
+        <%= "target_comment=#{@target_comment.id}" %>
+        <%= button_to '削除', "/posts/#{@post.id}/comments/#{@target_comment.id}", method: :delete, data: { turbo: false }, class: 'button2' %>
       <% end %>
     </div>
     <div id="cancel">
-      <p class="button1">中止</p>
+      <p class="button1"><% @target_comment %></p>
     </div>
   </div>
 </section>

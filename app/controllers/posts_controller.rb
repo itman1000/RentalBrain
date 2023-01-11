@@ -13,6 +13,7 @@ class PostsController < ApplicationController
     @comments = @post.comments
     @like = nil
     @likes_count = 0
+    @tcid = 0
 
     if @post.answer.presence
       @answer = @post.answer

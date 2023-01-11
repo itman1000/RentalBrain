@@ -2,10 +2,10 @@
   <div class="comments-index-item">
     <div class="comment-user">
       <div class="comment-index-user-image">
-        <%= image_tag post.user.avatar %>
+        <%= image_tag comment.user.avatar %>
       </div>
       <div class="comment-index-user-name">
-        <%= post.user.name %>
+        <%= comment.user.name %>
       </div>
     </div>
     <div class="comment-item">
@@ -13,11 +13,11 @@
       <div class="comment-time">
         <%= comment.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
       </div>
-      <div class="comment-menus">
-        <div class="comment-edit-menu" id='eliminate' >
-          <%= button_to '削除', dummy_post_comment_path(comment) %>
+      <% if comment.user_id == @current_user.id %>
+        <div class="comment-destroy">
+          <%= button_to '削除', dummy2_post_comment_path(post_id: post.id, id: comment.id), class: 'destroy-modal' %>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>

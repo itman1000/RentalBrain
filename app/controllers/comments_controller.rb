@@ -22,10 +22,18 @@ class CommentsController < ApplicationController
     end
   end
 
-  def dummy
+  def dummy2
+    @post = Post.find_by(id: params[:post_id])
+    @target_comment = @post.comments.find_by(id: params[:id])
+    if !@target_comment.presence
+      redirect_to posts_path
+    end
   end
   
   def destroy
+    @post = Post.find_by(post_id: params[:post_id])
+    @target = Comment.find_by(id: params[:id])
+    @post.commetns.destroy(@target)
   end
 
   private

@@ -699,11 +699,15 @@ turbo-frame {
   margin-top: 1vw;
 }
 
-.comment-menus {
+.comment-destroy {
   margin-top: auto;
   align-self: flex-end;
+  margin-right: 1vw;
+  border-bottom: .1vw solid #fff;
+  line-height: 1vw;
 }
 
-.comment-edit-menu {
-  margin-right: .5vw;
+.comment-destroy:hover {
+  color: #55f;
+  border-bottom: .1vw solid #55f;
 }

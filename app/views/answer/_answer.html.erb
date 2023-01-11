@@ -1,20 +1,20 @@
-<% if @post.answer.presence %>
+<% if post.answer.presence %>
   <div class="answer-show-item">
     <div class="posts-user-image">
-      <%= image_tag  @answer_user.avatar %>
+      <%= image_tag  answer_user.avatar %>
     </div>
     <div class="posts-user-name"> 
-      <%=  @answer_user.name %>
+      <%=  answer_user.name %>
     </div>
     <div class="posts-title">
       <p><%= '回答' %></p>
     </div>
     <div class="posts-content">
-      <%= safe_join(@post.answer.content.split("\n"),tag(:br)) %>
+      <%= safe_join(post.answer.content.split("\n"),tag(:br)) %>
     </div>
 
     <div class="posts-time">
-      <%= @post.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
+      <%= post.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
     </div>
 
     <%= turbo_frame_tag "liketag" do %>
@@ -31,9 +31,9 @@
     <% end %>
 
     <div class="posts-menus">
-      <% if @post.answer.user_id == @current_user.id %>
-        <div class="edit-menu" id='eliminate' >
-          <%= button_to '削除', dummy_post_path(@post), class: 'button5' %>
+      <% if post.answer.user_id == @current_user.id %>
+        <div class="edit-menu" >
+          <%= button_to '削除', dummy_post_path(post), class: 'destroy-modal button5' %>
         </div>
       <% end %>
     </div>
